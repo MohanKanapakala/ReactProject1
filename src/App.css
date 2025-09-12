@@ -1,0 +1,122 @@
+/* Root background */
+#root {
+  width: 100%;
+  max-width: none;
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff, #fff7f0, #ffe5c4);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* ✅ Combined Navbar */
+.navbar {
+  background: linear-gradient(135deg, #000000, #0f2027, #2c5364) !important;
+  padding: 20px 25px;
+  color: white;
+}
+
+/* Row 1: Logo + Search + Actions */
+.navbar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+  font-weight: 40px !important;
+}
+
+.logo h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 
+    0 0 5px #00f,
+    0 0 10px #0ff,
+    0 0 20px #0ff,
+    0 0 40px #00f,
+    0 0 80px #0ff;
+  animation: lightning 1.5s infinite alternate;
+}
+
+@keyframes lightning {
+  0% {
+    text-shadow: 
+      0 0 5px #00f,
+      0 0 10px #0ff,
+      0 0 20px #0ff,
+      0 0 40px #00f,
+      0 0 80px #0ff;
+    color: #fff;
+  }
+  50% {
+    text-shadow: 
+      0 0 10px #ff0,
+      0 0 20px #ff0,
+      0 0 40px #f00,
+      0 0 80px #ff0;
+    color: #ff0;
+  }
+  100% {
+    text-shadow: 
+      0 0 5px #0ff,
+      0 0 15px #0ff,
+      0 0 30px #00f,
+      0 0 60px #0ff,
+      0 0 100px #00f;
+    color: #0ff;
+  }
+}
+
+
+.search-bar {
+  flex: 1;
+  margin: 0 20px;
+  width: 400px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Row 2: Category Links */
+.navbar-bottom {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.nav-links {
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  text-decoration: none;
+  margin-left: 15px;
+  margin-bottom: 15px;
+   font-weight: 700; 
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.nav-links:hover {
+  background-color: #FFD700;
+  color: black !important;
+  transform: scale(1.05);
+}
+
+.cart-count {
+  color: orange;
+  font-weight: bold;
+}

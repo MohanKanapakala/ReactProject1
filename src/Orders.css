@@ -1,0 +1,96 @@
+.orders-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #000000; /* page black background */
+  align-items: center; /* center cards */
+}
+
+.top {
+  color: #ffd700; /* golden heading */
+  margin: 30px;
+  text-align: center;
+}
+
+.order-card {
+  background: #000000; /* black card */
+  border-radius: 12px;
+  padding: 16px 20px;
+  width: 600px; /* fixed width */
+  margin: 0 auto; /* center the card horizontally */
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.order-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+.orderId {
+  color: #ffd700; /* yellow */
+  margin-bottom: 8px;
+}
+
+.order-card p,
+.order-card h5 {
+  color: #ddd; /* light gray for text */
+  margin: 4px 0;
+}
+
+.order-items {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.order-items li {
+  background: #111111; /* inner item blackish card */
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.item-details h6 {
+  color: #ccc;
+  margin: 0;
+}
+
+.item-details p {
+  margin: 2px 0;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.item-price {
+  color: #ffd700;
+  font-weight: bold;
+  white-space: nowrap;
+}
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.total-price {
+  color: #ffd700;
+  font-weight: bold;
+}

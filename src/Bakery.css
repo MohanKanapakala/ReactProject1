@@ -1,0 +1,138 @@
+/* Container for the whole page */
+.bakery-container {
+  background: linear-gradient(135deg, #ffecd2, #fcb69f) ; /* cream → light brown */
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/* Grid container */
+.item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;  /* centers cards */
+  gap: 20px;                /* space between cards */
+  padding: 0;               /* remove default ul padding */
+  margin: 0 auto;           /* center container itself */
+  list-style: none;         /* remove bullet points */
+  max-width: 1200px;        /* optional: keep row neat */
+}
+
+/* Card styling */
+.item li {
+  width: 280px;              /* card width */
+  min-height: 450px;         /* increase height to hold bigger image */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
+.item li:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+/* Image styling */
+.item img {
+  width: 250px !important;          /* make it full card width */
+  height: 180px !important;        /* increase size */
+  max-height: none !important;     /* remove restrictions */
+  object-fit: contain !important;    /* fills card neatly */
+  border-radius: 8px;
+  background: white;
+  padding: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+
+
+
+.item img:hover {
+  transform: scale(1.1);
+}
+
+/* Card heading */
+.item h3 {
+  margin: 10px 0 5px;
+  font-size: 18px;
+  color: #800000; /* dark red */
+  font-weight: bold;
+}
+
+/* Description */
+.item p {
+  flex-grow: 1;
+  font-size: 14px;
+  margin: 10px 0;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Button */
+.item button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+   background: linear-gradient(45deg, #800000, #c0392b) !important; 
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.item button:hover {
+background: linear-gradient(45deg, #11998e, #38ef7d) !important;
+
+  transform: scale(1.05);
+}
+
+/* Pagination buttons */
+.next-button, .previous-button, .pagenation-buttons {
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 5px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.previous-button, .next-button {
+  background: linear-gradient(45deg, #800000, #a0522d);
+  color: white;
+}
+
+.previous-button:hover, .next-button:hover {
+  background: linear-gradient(45deg, #a0522d, #800000);
+  transform: scale(1.05);
+}
+
+.pagenation-buttons {
+  background-color: #f9d6b3;
+  color: #800000;
+}
+
+.pagenation-buttons:hover {
+  background-color: #f4b78d;
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .item li {
+    width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .item li {
+    width: 90%;
+  }
+}

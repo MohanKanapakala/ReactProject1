@@ -1,0 +1,244 @@
+.aboutus-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full screen height, change to 500px if you want smaller */
+  background: url("/images/restaurant.jpg") no-repeat center center/cover;
+}
+
+/* Orange transparent overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 165, 0, 0.6); /* transparent orange */
+
+  /* Center content */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical center */
+  align-items: center;     /* horizontal center */
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+}
+
+.overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.overlay h1 span {
+  color: blue;
+}
+
+.overlay p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.overlay button {
+  padding: 12px 24px;
+  background: #fff;
+  color: #333;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.overlay button:hover{
+  background-color: blue;
+  color: white;
+}
+
+
+.our-story-card {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.our-story-card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+.our-story h2 {
+  color: orange;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.our-story p {
+  color: white;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+.story-image-wrapper {
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.story-image {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  transition: transform 0.5s ease;
+}
+
+.story-image:hover {
+  transform: scale(1.0);
+}
+
+
+
+/* Our Values Grid */
+.ourvalues-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px; /* space between cards */
+}
+
+/* Our Values Cards */
+.our-values h2{
+  color: yellow;
+  font-size: 40px;
+  
+}
+.our-values p{
+  color: white;
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+.ourvalues-card {
+  background: white;
+  color: black;
+  border: 2px solid orange;
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 40px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ourvalues-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 5px 5px 10px orange;
+  border: 2px solid grey;
+}
+
+/* Emoji Circle */
+.icon-wrapper {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  background: orange;
+  border-radius: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+
+/* Meet our team */
+.meet-team h2{
+  color: yellow;
+  font-size: 40px;
+
+}
+.meet-team p{
+color: white;
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+.meet-our-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr; /* image : text ratio */
+  gap: 30px;
+  align-items: center;
+  margin: 60px 0;
+  color: white;
+}
+
+/* Image styling */
+.meet-our-grid .image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+}
+
+/* Text styling */
+.meet-our-grid .text h2 {
+  color: pink;
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.meet-our-grid .text h3 {
+  color: grey;
+  font-weight: normal;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.meet-our-grid .text p {
+  color: #ddd;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 768px) {
+  .meet-our-grid {
+    grid-template-columns: 1fr; /* stack */
+    text-align: center;
+  }
+  
+  .meet-our-grid .image img {
+    margin: 0 auto;
+  }
+}
+
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(90deg, #ff8c00, #ff6600); /* orange gradient */
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 10px 10px 0 0; /* optional rounded top edges */
+  margin-top: 60px;
+}
+
+.cta-section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.cta-section p {
+  font-size: 1.1rem;
+  color: #fbeee0;
+}
+
+
+
+
+
+
+
+
+
+
+
+  

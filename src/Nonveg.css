@@ -1,0 +1,156 @@
+/* ===== Container for the whole page ===== */
+.nonveg-container {
+  background: linear-gradient(135deg, #c77c78, #f4c4a8) !important; /* light maroon/brown gradient */
+  min-height: 100vh !important;
+  padding: 20px !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+/* ===== Heading ===== */
+.nonveg-container h1 {
+  text-align: center !important;
+  color: #fff3b0 !important;
+  font-size: 32px !important;
+  font-weight: bold !important;
+  margin-bottom: 40px !important;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.3) !important;
+}
+
+/* ===== Grid for 5 cards per row ===== */
+.nonveg-container .item {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important; /* exactly 5 cards */
+  gap: 20px !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+/* ===== Card styling ===== */
+.nonveg-container .item li {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  border-radius: 15px !important;
+  padding: 25px !important;
+  text-align: center !important;
+  background: #fff !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25) !important;
+  transition: transform 0.3s, box-shadow 0.3s !important;
+  border: none !important;
+  width: auto !important; /* remove fixed width */
+}
+
+/* Hover effect */
+.nonveg-container .item li:hover {
+  transform: translateY(-5px) scale(1.05) !important;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.35) !important;
+}
+
+/* ===== Image ===== */
+.nonveg-container .item img {
+  width: 100% !important;
+  height: 170px !important;
+  object-fit: contain !important;
+  border-radius: 12px !important;
+  margin-bottom: 15px !important;
+  transition: transform 0.3s !important;
+}
+
+.nonveg-container .item img:hover {
+  transform: scale(1.1) !important;
+}
+
+/* ===== Title ===== */
+.nonveg-container .item h3 {
+  margin: 10px 0 5px !important;
+  font-size: 20px !important;
+  color: #800000 !important;
+  font-weight: bold !important;
+}
+
+/* ===== Description ===== */
+.nonveg-container .item p {
+  flex-grow: 1 !important;
+  font-size: 14px !important;
+  margin: 10px 0 !important;
+  color: #555 !important;
+  line-height: 1.4 !important;
+}
+
+/* ===== Button ===== */
+.nonveg-container .item button {
+  margin-top: 10px !important;
+  padding: 10px 16px !important;
+  border: none !important;
+  border-radius: 8px !important;
+  background: linear-gradient(45deg, #800000, #a0522d) !important;
+  color: white !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  transition: all 0.3s !important;
+}
+
+.nonveg-container .item button:hover {
+  background: linear-gradient(45deg, #a0522d, #800000) !important;
+  transform: scale(1.05) !important;
+}
+
+/* ===== Pagination buttons ===== */
+.nonveg-container .next-button,
+.nonveg-container .previous-button,
+.nonveg-container .pagenation-buttons {
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  margin: 5px !important;
+  font-weight: bold !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.3s !important;
+}
+
+.nonveg-container .previous-button,
+.nonveg-container .next-button {
+  background: linear-gradient(45deg, #800000, #a0522d) !important;
+  color: white !important;
+}
+
+.nonveg-container .previous-button:hover,
+.nonveg-container .next-button:hover {
+  background: linear-gradient(45deg, #a0522d, #800000) !important;
+  transform: scale(1.05) !important;
+}
+
+.nonveg-container .pagenation-buttons {
+  background-color: #f9d6b3 !important;
+  color: #800000 !important;
+}
+
+.nonveg-container .pagenation-buttons:hover {
+  background-color: #f4b78d !important;
+  transform: scale(1.05) !important;
+}
+
+/* ===== Responsive adjustments ===== */
+@media (max-width: 1200px) {
+  .nonveg-container .item {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .nonveg-container .item {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .nonveg-container .item {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nonveg-container .item {
+    grid-template-columns: 1fr !important;
+  }
+}

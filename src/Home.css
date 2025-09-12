@@ -1,0 +1,372 @@
+/* ===== Fullscreen Video Hero ===== */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%); /* ✅ makes overlay text more visible */
+}
+
+.video-overlay {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  text-align: center;
+  max-width: 900px;
+  animation: fadeInUp 2s ease-in-out;
+}
+
+.video-overlay h1 {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+}
+
+.video-overlay h1 span {
+  color: #ff9800;
+}
+
+.video-overlay h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #fdd835;
+}
+
+.video-overlay h2 span {
+  color: #ff5722;
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translate(-50%, 40px); }
+  100% { opacity: 1; transform: translate(-50%, 0); }
+}
+
+
+/* Food items carosol */
+.food-section {
+  padding: 20px;
+  text-align: center;
+  margin: 20px;
+  border: 1px solid black;
+  height: 350px;
+  box-shadow: 2px 2px 5px black;
+      background: linear-gradient(135deg, #000000, #1a1a1a, #2b2b2b);
+
+
+  display: flex;              /* ✅ Make it a flex container */
+  flex-direction: column;     /* Keep heading on top, scroll below */
+  justify-content: center;    /* ✅ Vertically center contents */
+}
+
+
+.food-sec {
+  margin-bottom: 20px;
+  
+   color: blue !important;
+    font-size: 42px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.food-scroll {
+  display: flex;
+  overflow-x: auto;   /* enables horizontal scroll */
+  gap: 50px;
+  padding: 10px;
+  scroll-behavior: smooth;  /* smooth scrolling */
+  align-items: center;      /* ✅ vertically centers food items */
+}
+
+
+.food-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.food-scroll::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.food-item img {
+  height: 120px;
+  width: 130px;
+  border-radius: 10px;
+  object-fit: contain;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+/* 🔥 Zoom & Shadow */
+.food-item img:hover {
+  transform: scale(1.1);  /* zoom in */
+  
+}
+
+/* 🎨 Add slight brightness */
+.food-item:hover img {
+  filter: brightness(1.1);
+}
+
+/* 📌 Text effect too */
+.food-item strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  color: magenta;
+}
+
+.food-item:hover strong {
+  color: green;
+  transform: scale(1.05);
+}
+
+
+/* ===== Carousel Section ===== */
+.carousel-container {
+  margin: 60px auto;
+  padding: 20px;
+  max-width: 1250px;
+}
+
+.carousel-title {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 35px;
+  font-weight: 700;
+  color: #ff9800;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.category-card {
+  padding: 12px;
+  text-align: center;
+}
+
+.category-box {
+  background: linear-gradient(135deg, #fff, #f9f9f9);
+  border-radius: 15px;
+  padding: 20px;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.category-box:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(255,152,0,0.5);
+}
+
+.category-image {
+  width: 100%;
+  max-width: 240px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 auto 15px;
+  display: block;
+}
+
+.category-box h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Arrows */
+.slick-prev:before,
+.slick-next:before {
+  color: #ff9800;
+  font-size: 30px;
+  opacity: 0.9;
+}
+
+/* ===== Our Achievements ===== */
+.heading {
+  color: #ff9800;
+  margin-bottom: 35px;
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.rowStyle {
+  border-radius: 20px;
+  background: linear-gradient(135deg, #ffffff, #fff7f0, #ffe5c4);
+  padding: 30px;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 5px black;
+}
+
+.colFirst {
+  text-align: left;
+  color: black;
+  font-size:medium;
+}
+
+.colFirst h3 {
+  color: blue;
+  font-weight: 600;
+}
+
+.colFirst h5 {
+  color: #4caf5c;
+  margin-bottom: 15px;
+}
+
+.colSecond {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 20px;
+}
+
+.achieve-card {
+  text-align: center;
+  border-radius: 12px;
+  padding: 25px;
+  background: linear-gradient(135deg, #000000, #0f2027, #2c5364);
+  backdrop-filter: blur(6px);
+  transition: 0.3s ease;
+}
+
+.achieve-card:hover {
+   transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.icons {
+  font-size: 36px;
+  color: #ff9800;
+  margin-bottom: 10px;
+}
+
+.achieves {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* ===== Get in Touch Section ===== */
+.get-heading{
+    color: #ff9800;
+    font-size: 42px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+.container-fluid.text-center {
+  /* background: linear-gradient(135deg, #ff9800, #ff5722); */
+  background: linear-gradient(135deg, #ffffff, #fff7f0, #ffe5c4);
+  padding: 40px 20px;
+  color: #fff;
+  
+}
+
+.container.text-center.my-5 h2 {
+  font-size: 28px;
+  /* margin-bottom: 10px; */
+}
+
+.container.text-center.my-5 h3 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.container.text-center.my-5 p {
+  font-size: 1.1rem;
+}
+
+/* Cards */
+.card {
+  border-radius: 15px !important;
+  transition: all 0.3s ease;
+    background: linear-gradient(135deg, #000000, #0f2027, #2c5364);
+  color: white !important;
+
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* footer */ 
+.row-section{
+  /* background: linear-gradient(135deg, #000000, #001a00, #003300); */
+    background: linear-gradient(135deg, #000000, #1a1a1a, #2b2b2b);
+  border: 2px solid white;
+   padding: 30px;
+   
+    
+} 
+.foodiePlace{ 
+    color: yellow;
+     text-align: left;
+     } 
+.foodiePlace p{
+     color: white; 
+     text-align: left; 
+    } 
+.fb-color{ color: blue; }
+.insta-color{ color: brown; }
+.whatsapp-color{ color: green; } 
+.icons-grid { 
+    display: grid;
+     grid-template-columns: repeat(3, auto); /* columns adjust to icon width */ 
+     justify-content: left; /* center the grid */
+      gap: 20px; /* small gap between icons */
+     } 
+.quick-link{ 
+        color: yellow;
+         text-align: left;
+          margin-left: 30px;
+         }
+.quick-links{
+             text-align: left;
+              margin-left: 30px; 
+            } 
+.quick-links a{
+     text-decoration: none;
+      color: white; text-align: left; 
+    } 
+.quick-links a:hover {
+     color: blue; /* any color you like on hover */
+      text-decoration: underline; 
+    } 
+.menuHeading{
+ color: yellow; 
+ text-align: left; 
+} 
+.menu-list{
+     text-align: left;
+      color: white; 
+    } 
+.contactInfo{ 
+        color: yellow;
+         text-align: left;
+         }
+.contact-text {
+     color: white;
+      text-align: left;
+     }
+ .contact-text p{ 
+    color: white; 
+    text-align: left;
+ } 
+ .copy-rights{ 
+    text-align: center; 
+    color: white;
+ }
+
+
+
