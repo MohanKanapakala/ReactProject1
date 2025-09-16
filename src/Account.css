@@ -2,12 +2,13 @@
 /* Login Form Container */
 form {
   background: #fff;
-  padding: 40px 30px;
+  padding: 10px 10px;
   border-radius: 15px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
   width: 350px;
   text-align: center;
   transition: transform 0.3s ease;
+  margin-top: 10px;
 }
 
 form:hover {
@@ -82,5 +83,11 @@ form button:hover {
   justify-content: center;
   align-items: center;
   height: 100vh; /* full viewport height */
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  /* background: linear-gradient(135deg, #6a11cb, #2575fc); */
+  background: linear-gradient(to bottom, 
+  #d6e6fa 0%, 
+  #e3d3f7 50%, 
+  #f5b6b6 100%
+) !important;
+min-height: 100vh;
 }

@@ -13,7 +13,7 @@ function Nonveg() {
   
   const [currentPage, setCurrentPage] = useState(1);
 
-  const itemsPerPage = 5;
+  const itemsPerPage = 8;
 
   const totalPages = Math.ceil(nonVegItems.length / itemsPerPage);
   
@@ -53,7 +53,7 @@ function Nonveg() {
     <>
       <div className="nonveg-container">
         <ToastContainer position="top-right" autoClose={2000}></ToastContainer>
-        <h1 style={{ color: "yellow", fontWeight: "bold", marginTop: "5px" }}>
+        <h1 style={{ color: "blue", fontWeight: "bold", marginTop: "5px" }}>
           {" "}
           Nonveg Items ...
         </h1>

@@ -1,6 +1,10 @@
 /* Container for the whole page */
 .veg-container {
-  background: linear-gradient(135deg, #1f4037, #99f2c8); /* gradient background */
+  background: linear-gradient(to bottom, 
+    #d6e6fa 0%, 
+    #e3d3f7 50%, 
+    #f5b6b6 100%
+  ) !important;
   min-height: 100vh;
   padding: 40px 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -10,47 +14,46 @@
 .item {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;  /* centers cards */
-  gap: 20px;                /* space between cards */
-  padding: 0;               /* remove default ul padding */
-  margin: 0 auto;           /* center container itself */
-  list-style: none;         /* remove bullet points */
-  max-width: 1200px;        /* optional: keep row neat */
+  justify-content: center;  
+  row-gap: 40px !important;   /* ✅ gap between rows */
+  column-gap: 30px !important; /* ✅ gap between columns */
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+  max-width: 1200px;
 }
 
 /* Card styling */
 .item li {
-  width: 280px;              /* card width */
-  min-height: 450px;         /* increase height to hold bigger image */
+  width: 270px !important;
+  min-height: 380px !important;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: linear-gradient(135deg, #000000, #0f2027, #2c5364);
+  border-radius: 12px;
+  overflow: hidden;
+   transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
 }
-
-
 
 .item li:hover {
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+  
 }
 
 /* Image styling */
 .item img {
-  width: 250px !important;          /* make it full card width */
-  height: 180px !important;        /* increase size */
-  max-height: none !important;     /* remove restrictions */
-  object-fit: contain !important;    /* fills card neatly */
+  width: 250px !important;
+  height: 180px !important;
+  max-height: none !important;
+  object-fit: contain !important;
   border-radius: 8px;
-  background: white;
+  background: transparent !important;
   padding: 8px;
   display: block;
   margin: 0 auto;
 }
-
-
-
-
-
 
 .item img:hover {
   transform: scale(1.1);
@@ -60,8 +63,9 @@
 .item h3 {
   margin: 10px 0 5px;
   font-size: 18px;
-  color: #800000; /* dark red */
+  color: yellow !important;
   font-weight: bold;
+  text-align: center;
 }
 
 /* Description */
@@ -69,26 +73,28 @@
   flex-grow: 1;
   font-size: 14px;
   margin: 10px 0;
-  color: #333;
+  color: white !important;
   line-height: 1.4;
+  text-align: center;
 }
 
 /* Button */
 .item button {
-  margin-top: 10px;
-  padding: 8px 12px;
+  margin: 15px auto 20px auto; /* ✅ center button inside card */
+  padding: 10px 18px;
   border: none;
-  border-radius: 6px;
-   background: linear-gradient(45deg, #800000, #c0392b) !important; 
-  color: white;
+  border-radius: 25px; /* ✅ rounded button */
+  background: linear-gradient(90deg, yellow, gold); /* ✅ new gradient look */
+  color: black !important;
   cursor: pointer;
   font-weight: bold;
-  transition: all 0.3s;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  display: block;
 }
 
 .item button:hover {
-background: linear-gradient(45deg, #11998e, #38ef7d) !important;
-
+  background: linear-gradient(90deg, #ffdb4d, #ffd700);
   transform: scale(1.05);
 }
 
@@ -104,7 +110,7 @@ background: linear-gradient(45deg, #11998e, #38ef7d) !important;
 }
 
 .previous-button, .next-button {
-  background: linear-gradient(45deg, #800000, #a0522d);
+  background: linear-gradient(135deg, #000000, #0f2027, #2c5364) !important;
   color: white;
 }
 
@@ -114,12 +120,12 @@ background: linear-gradient(45deg, #11998e, #38ef7d) !important;
 }
 
 .pagenation-buttons {
-  background-color: #f9d6b3;
-  color: #800000;
+  background-color: maroon !important;
+  color: white !important;
 }
 
 .pagenation-buttons:hover {
-  background-color: #f4b78d;
+  background-color: green !important;
   transform: scale(1.05);
 }
 

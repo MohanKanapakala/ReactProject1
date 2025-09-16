@@ -10,7 +10,7 @@ function Veg() {
   let dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 8;
 
   // total pages
   const totalPages = Math.ceil(vegItems.length / itemsPerPage);
@@ -52,9 +52,7 @@ function Veg() {
     <>
       <div className="veg-container">
         <ToastContainer position="top-right" autoClose={2000}></ToastContainer>
-        <h1
-          style={{ color: "yellow", fontWeight: "bolder", marginTop: "10px" }}
-        >
+        <h1 style={{ color: "blue", fontWeight: "bolder", marginTop: "10px" }}>
           Veg Items...
         </h1>
         {/* Use the prepared list */}
@@ -74,7 +72,7 @@ function Veg() {
             style={{ margin: "5px" }}
             className="previous-button"
           >
-            Prev
+            ⏪Prev
           </button>
 
           <div>{paginationButtons}</div>
@@ -84,7 +82,7 @@ function Veg() {
             disabled={currentPage === totalPages}
             className="next-button"
           >
-            Next
+            Next⏩
           </button>
         </div>
       </div>

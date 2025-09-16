@@ -15,7 +15,7 @@
 
 .video-overlay {
   position: absolute;
-  bottom: 15%;
+  bottom: 50%;
   left: 50%;
   transform: translateX(-50%);
   color: #fff;
@@ -53,48 +53,20 @@
 
 
 /* Food items carosol */
-.food-section {
-  padding: 20px;
-  text-align: center;
-  margin: 20px;
-  border: 1px solid black;
-  height: 350px;
-  box-shadow: 2px 2px 5px black;
-      background: linear-gradient(135deg, #000000, #1a1a1a, #2b2b2b);
-
-
-  display: flex;              /* ✅ Make it a flex container */
-  flex-direction: column;     /* Keep heading on top, scroll below */
-  justify-content: center;    /* ✅ Vertically center contents */
-}
-
-
-.food-sec {
-  margin-bottom: 20px;
-  
-   color: blue !important;
-    font-size: 42px;
-    font-weight: 700;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-}
-
-.food-scroll {
+.food-item {
   display: flex;
-  overflow-x: auto;   /* enables horizontal scroll */
-  gap: 50px;
-  padding: 10px;
-  scroll-behavior: smooth;  /* smooth scrolling */
-  align-items: center;      /* ✅ vertically centers food items */
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  margin: 0 8px;          /* small spacing between items */
+  height: 200px;
+  background: transparent; /* ❌ remove per-item background */
 }
-
-
-.food-scroll::-webkit-scrollbar {
-  height: 8px;
-}
-
-.food-scroll::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 10px;
+.first-carosol {
+  background: black;       /* ✅ black background only once */
+  padding: 20px 0;
+  border-radius: 8px;
 }
 
 .food-item img {
@@ -104,32 +76,29 @@
   object-fit: contain;
   transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
   cursor: pointer;
-}
+  display: block;          /* ensures image stays on its own line */
+  margin: 0 auto;          /* center image */
 
-/* 🔥 Zoom & Shadow */
-.food-item img:hover {
-  transform: scale(1.1);  /* zoom in */
-  
 }
-
-/* 🎨 Add slight brightness */
-.food-item:hover img {
-  filter: brightness(1.1);
-}
-
-/* 📌 Text effect too */
 .food-item strong {
-  display: block;
-  margin-top: 8px;
+  margin-top: 8px;        /* space between image & name */
   font-size: 1rem;
-  transition: color 0.3s ease, transform 0.3s ease;
   color: magenta;
+  display: block;
+  text-align: center;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
-
 .food-item:hover strong {
   color: green;
   transform: scale(1.05);
 }
+.food-sec{
+  color: blue;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  font-weight: 700;
+  padding: 20px 20px;
+}
+
 
 
 /* ===== Carousel Section ===== */
@@ -144,7 +113,7 @@
   font-size: 42px;
   margin-bottom: 35px;
   font-weight: 700;
-  color: #ff9800;
+  color: blue;
   text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
 
@@ -154,7 +123,13 @@
 }
 
 .category-box {
-  background: linear-gradient(135deg, #fff, #f9f9f9);
+  /* background: linear-gradient(135deg, #fff, #f9f9f9); */
+  background: radial-gradient(circle at center, 
+  #ffffff 0%, 
+  #d6e6fa 40%, 
+  #e3d3f7 70%, 
+  #f5b6b6 100% 
+);
   border-radius: 15px;
   padding: 20px;
   transition: all 0.4s ease-in-out;
@@ -179,21 +154,25 @@
 .category-box h3 {
   font-size: 1.3rem;
   font-weight: bold;
-  color: #333;
+  color: blue;
   margin-top: 10px;
+}
+.category-box h3:hover{
+color: green;
+text-decoration: none;
 }
 
 /* Arrows */
 .slick-prev:before,
 .slick-next:before {
-  color: #ff9800;
+  color: blue;
   font-size: 30px;
   opacity: 0.9;
 }
 
 /* ===== Our Achievements ===== */
 .heading {
-  color: #ff9800;
+  color: blue;
   margin-bottom: 35px;
   text-align: center;
   font-size: 42px;
@@ -203,7 +182,13 @@
 
 .rowStyle {
   border-radius: 20px;
-  background: linear-gradient(135deg, #ffffff, #fff7f0, #ffe5c4);
+  /* background: linear-gradient(135deg, #ffffff, #fff7f0, #ffe5c4); */
+  background: radial-gradient(circle at center, 
+  #ffffff 0%, 
+  #d6e6fa 40%, 
+  #e3d3f7 70%, 
+  #f5b6b6 100% 
+);
   padding: 30px;
   margin-bottom: 10px;
   box-shadow: 2px 2px 5px black;
@@ -266,7 +251,13 @@
 }
 .container-fluid.text-center {
   /* background: linear-gradient(135deg, #ff9800, #ff5722); */
-  background: linear-gradient(135deg, #ffffff, #fff7f0, #ffe5c4);
+  /* background: linear-gradient(135deg, #ffffff, #fff7f0, #ffe5c4); */
+  background: radial-gradient(circle at center, 
+  #ffffff 0%, 
+  #d6e6fa 40%, 
+  #e3d3f7 70%, 
+  #f5b6b6 100% 
+);
   padding: 40px 20px;
   color: #fff;
   
@@ -298,6 +289,80 @@
 .card:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* customer reviews */
+.reviews{
+  background: radial-gradient(circle at center, 
+  #ffffff 0%, 
+  #d6e6fa 40%, 
+  #e3d3f7 70%, 
+  #f5b6b6 100% 
+ ) !important;
+}
+.rev-heading{
+  color: blue;
+  font-size: 42px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+}
+.reviews-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  
+}
+
+.review-card {
+ /* background: radial-gradient(circle at center, 
+  #ffffff 0%, 
+  #d6e6fa 40%, 
+  #e3d3f7 70%, 
+  #f5b6b6 100% 
+); */
+background: linear-gradient(135deg, #000000, #0f2027, #2c5364);
+  padding: 20px;
+  width: 250px;
+  border-radius: 15px;
+  border: 1px solid black;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  height: 380px;
+}
+
+.review-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.review-card img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.review-card strong {
+  display: block;
+  margin: 10px 0 5px 0;
+  font-size: 1.1em;
+  color: magenta;
+}
+
+.review-card .stars {
+  color: #FFD700; /* golden stars */
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.review-card p {
+  font-size: 0.95em;
+  color: white;
 }
 
 /* footer */ 

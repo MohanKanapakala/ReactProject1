@@ -12,7 +12,7 @@ function Bakery() {
   let dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+  const itemsPerPage = 8;
 
   // total pages
   const totalPages = Math.ceil(bakeryItems.length / itemsPerPage);
@@ -61,7 +61,7 @@ function Bakery() {
       <div className="bakery-container">
         <ToastContainer position="top-right" autoClose={2000}></ToastContainer>
         <h1
-          style={{ color: "yellow", fontWeight: "bolder", marginTop: "10px" }}
+          style={{ color: "blue", fontWeight: "bolder", marginTop: "10px" }}
         >
           Bakery Items...
         </h1>

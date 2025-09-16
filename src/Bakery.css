@@ -1,11 +1,10 @@
 /* Container for the whole page */
 .bakery-container {
-  background: linear-gradient(135deg, #ffecd2, #fcb69f) ; /* cream → light brown */
+  background: linear-gradient(135deg, #ffffff, #fff7f0, #ffe5c4);
   min-height: 100vh;
   padding: 40px 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 
 /* Grid container */
 .item {
@@ -17,22 +16,31 @@
   margin: 0 auto;           /* center container itself */
   list-style: none;         /* remove bullet points */
   max-width: 1200px;        /* optional: keep row neat */
+ 
+
 }
 
 /* Card styling */
 .item li {
-  width: 280px;              /* card width */
-  min-height: 450px;         /* increase height to hold bigger image */
+  width: 270px !important;              /* card width */
+  min-height: 380px !important;         /* increase height to hold bigger image */
   display: flex;
   flex-direction: column;
+  border-radius: 10px;
   justify-content: space-between;
+  background: linear-gradient(135deg, #000000, #0f2027, #2c5364);
+/* background: linear-gradient(135deg, #000000, #3a0d0d, #8e0e00);non */
+/* background: linear-gradient(135deg, #3e2723, #8d5524, #d7b19d); choco*/
+/* background: linear-gradient(135deg, #ffffff, #dbe9f4, #80d0c7); milk*/
+/* background: linear-gradient(135deg, #ffffff, #c9d6ff, #e2e2e2); */
+/* background: linear-gradient(135deg, #fff0f5, #ffd1dc, #ffb6b9); bakery*/
 }
 
 
 
 .item li:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+   transform: translateY(-2px) scale(1.01); 
+ box-shadow: 5px 5px 10px yellow;
 }
 
 /* Image styling */
@@ -42,26 +50,21 @@
   max-height: none !important;     /* remove restrictions */
   object-fit: contain !important;    /* fills card neatly */
   border-radius: 8px;
-  background: white;
+  background: transparent !important;
   padding: 8px;
   display: block;
   margin: 0 auto;
 }
 
-
-
-
-
-
 .item img:hover {
-  transform: scale(1.1);
+  transform: scale(1.0);
 }
 
 /* Card heading */
 .item h3 {
   margin: 10px 0 5px;
   font-size: 18px;
-  color: #800000; /* dark red */
+  color: yellow !important; /* dark red */
   font-weight: bold;
 }
 
@@ -70,7 +73,7 @@
   flex-grow: 1;
   font-size: 14px;
   margin: 10px 0;
-  color: #333;
+  color: white !important;
   line-height: 1.4;
 }
 
@@ -80,17 +83,16 @@
   padding: 8px 12px;
   border: none;
   border-radius: 6px;
-   background: linear-gradient(45deg, #800000, #c0392b) !important; 
   color: white;
+  
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s;
 }
 
 .item button:hover {
-background: linear-gradient(45deg, #11998e, #38ef7d) !important;
 
-  transform: scale(1.05);
+  
 }
 
 /* Pagination buttons */
@@ -105,7 +107,7 @@ background: linear-gradient(45deg, #11998e, #38ef7d) !important;
 }
 
 .previous-button, .next-button {
-  background: linear-gradient(45deg, #800000, #a0522d);
+  background: linear-gradient(135deg, #000000, #0f2027, #2c5364) !important;
   color: white;
 }
 
@@ -115,8 +117,8 @@ background: linear-gradient(45deg, #11998e, #38ef7d) !important;
 }
 
 .pagenation-buttons {
-  background-color: #f9d6b3;
-  color: #800000;
+  background-color: maroon !important;
+  color: white !important;
 }
 
 .pagenation-buttons:hover {

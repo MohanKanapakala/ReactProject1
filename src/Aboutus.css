@@ -1,3 +1,12 @@
+body{
+background: linear-gradient(to bottom, 
+  #d6e6fa 0%, 
+  #e3d3f7 50%, 
+  #f5b6b6 100%
+) !important;
+min-height: 100vh;
+
+}
 .aboutus-hero {
   position: relative;
   width: 100%;
@@ -57,7 +66,13 @@
 
 .our-story-card {
   width: 100%;
-  background: rgba(255, 255, 255, 0.05);
+  background: linear-gradient(to bottom, 
+  #d6e6fa 0%, 
+  #e3d3f7 50%, 
+  #f5b6b6 100%
+);
+min-height: 100vh;
+
   border-radius: 20px;
   padding: 50px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
@@ -67,17 +82,19 @@
 .our-story-card:hover {
   transform: translateY(-5px) scale(1.01);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  
 }
 
 .our-story h2 {
-  color: orange;
+  color: red;
+  text-shadow: #ff6600;
   font-weight: bold;
   margin-bottom: 20px;
   text-transform: uppercase;
 }
 
 .our-story p {
-  color: white;
+  color: black;
   line-height: 1.7;
   font-size: 16px;
 }
@@ -109,19 +126,25 @@
 
 /* Our Values Cards */
 .our-values h2{
-  color: yellow;
+  color: red;
   font-size: 40px;
   
 }
 .our-values p{
-  color: white;
+  color: black;
   font-size: 20px;
   margin-bottom: 40px;
 }
 .ourvalues-card {
-  background: white;
+  background: linear-gradient(to bottom, 
+  #d6e6fa 0%, 
+  #e3d3f7 50%, 
+  #f5b6b6 100%
+);
+
+
   color: black;
-  border: 2px solid orange;
+  border: 2px solid black;
   border-radius: 15px;
   padding: 30px;
   margin-bottom: 40px;
@@ -131,7 +154,7 @@
 
 .ourvalues-card:hover {
   transform: translateY(-8px);
-  box-shadow: 5px 5px 10px orange;
+  box-shadow: 5px 5px 10px black;
   border: 2px solid grey;
 }
 
@@ -151,12 +174,12 @@
 
 /* Meet our team */
 .meet-team h2{
-  color: yellow;
+  color: red;
   font-size: 40px;
 
 }
 .meet-team p{
-color: white;
+color: black;
   font-size: 20px;
   margin-bottom: 40px;
 }
@@ -166,7 +189,7 @@ color: white;
   gap: 30px;
   align-items: center;
   margin: 60px 0;
-  color: white;
+  color: blue !important;
 }
 
 /* Image styling */
@@ -179,20 +202,20 @@ color: white;
 
 /* Text styling */
 .meet-our-grid .text h2 {
-  color: pink;
+  color: blue;
   margin-bottom: 10px;
   font-size: 25px;
 }
 
 .meet-our-grid .text h3 {
-  color: grey;
+  color: green;
   font-weight: normal;
   margin-bottom: 20px;
   font-size: 20px;
 }
 
 .meet-our-grid .text p {
-  color: #ddd;
+  color: black;
   line-height: 1.6;
   margin-bottom: 15px;
   text-align: left;
@@ -214,7 +237,7 @@ color: white;
 /* CTA Section */
 .cta-section {
   background: linear-gradient(90deg, #ff8c00, #ff6600); /* orange gradient */
-  color: white;
+  color: black;
   text-align: center;
   padding: 60px 20px;
   border-radius: 10px 10px 0 0; /* optional rounded top edges */
@@ -224,6 +247,7 @@ color: white;
 .cta-section h2 {
   font-size: 2rem;
   margin-bottom: 15px;
+  color: black;
 }
 
 .cta-section p {

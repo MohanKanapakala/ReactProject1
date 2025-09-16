@@ -6,20 +6,24 @@ import { useDispatch } from "react-redux";
 import { registerUser } from "./store";
 
 function Signup() {
+
   let dispatch = useDispatch();
+  let navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
+
   const password = watch("password");
-  let navigate = useNavigate();
+  
 
   const handleSignup = (data) => {
     dispatch(registerUser(data));
     alert("Signup successful");
-    navigate("/");
+    navigate("/signin");
   };
 
   return (
@@ -27,7 +31,7 @@ function Signup() {
       <form onSubmit={handleSubmit(handleSignup)}>
         <h2>Sign Up</h2>
 
-        <label>Username</label>
+        <label>👤Username</label>
         <input
           type="text"
           placeholder="Enter Username"
@@ -37,7 +41,7 @@ function Signup() {
           <p style={{ color: "red" }}>{errors.userName.message}</p>
         )}
 
-        <label>Email</label>
+        <label>📩Email</label>
         <input
           type="email"
           placeholder="Enter Email"
@@ -59,7 +63,7 @@ function Signup() {
         />
         {errors.email && <p style={{ color: "red" }}>{errors.email.message}</p>}
 
-        <label>Password</label>
+        <label>🔒Password</label>
         <input
           type="password"
           placeholder="Enter Password"
@@ -75,7 +79,7 @@ function Signup() {
           <p style={{ color: "red" }}>{errors.password.message}</p>
         )}
 
-        <label>Confirm Password</label>
+        <label>🔑Confirm Password</label>
         <input
           type="password"
           placeholder="Confirm Password"
@@ -91,7 +95,7 @@ function Signup() {
         <button type="submit">Sign Up</button>
 
         <p style={{ marginTop: "15px" }}>
-          Already have an account? <Link to="/">Sign In</Link>
+          Already have an account? <Link to="/signin">Sign In</Link>
         </p>
       </form>
     </div>

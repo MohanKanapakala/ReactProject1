@@ -1,6 +1,20 @@
+.body{
+ background: radial-gradient(circle at center, 
+  #ffffff 0%, 
+  #d6e6fa 40%, 
+  #e3d3f7 70%, 
+  #f5b6b6 100% 
+t) !important;
+}
 /* Hero Section */
 .hero-section {
-  background-color: wheat;
+  background: linear-gradient(to bottom, 
+  #d6e6fa 0%, 
+  #e3d3f7 50%, 
+  #f5b6b6 100%
+);
+min-height: 100vh;
+
   color: black;
   text-align: center;
   height: 460px;
@@ -66,15 +80,32 @@
   display: flex;
   gap: 40px;
   padding: 50px;
-  background: #f9f9f9;
+  /* background: linear-gradient(135deg, #ffffff, #fff7f0, #ffe5c4); */
+  background: linear-gradient(to bottom, 
+  #d6e6fa 0%, 
+  #e3d3f7 50%, 
+  #f5b6b6 100%
+);
+min-height: 100vh;
+
 }
+
 
 /* Form */
 .contact-form {
   flex: 2;
-  background: white;
+  /* background: linear-gradient(135deg, #ffffff, #fff7f0, #ffe5c4); */
+  background: linear-gradient(to bottom, 
+  #d6e6fa 0%, 
+  #e3d3f7 50%, 
+  #f5b6b6 100%
+);
+min-height: 100vh;
+
+
   padding: 20px;
-  border-radius: 12px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px black !important;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 .contact-form h2 {
@@ -124,15 +155,16 @@
   gap: 20px;
 }
 .info-card {
-  background: white;
+  background: linear-gradient(135deg, #000000, #0f2027, #2c5364);
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-align: center;
   border: 1px solid grey;
+  color: white;
 }
 .info-card:hover{
-    box-shadow: 5px 5px 10px black;
+    box-shadow: 5px 5px 10px gold;
 }
 .info-card i {
   font-size: 24px;

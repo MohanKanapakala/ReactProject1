@@ -21,6 +21,13 @@ function App() {
   let cartItems = useSelector((globalState) => globalState.cart);
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
+  let isAuthenticated = useSelector(
+    (globalState) => globalState.authentication.isAuthenticated
+  );
+  let user = useSelector(
+    (globalState) => globalState.authentication.currentUser
+  );
+
   return (
     <>
       <BrowserRouter>
@@ -43,12 +50,13 @@ function App() {
               <Link to="/orders" className=" nav-links">
                 📦 Orders
               </Link>
-              <Link to="/signup" className=" nav-links">
+              
+              <Link to="/" className=" nav-links">
                 SignUp
               </Link>
-              <Link to="/" className=" nav-links">
+              <Link to="/signin" className=" nav-links">
                 <MdAccountCircle size={28} style={{ marginRight: "5px" }} />
-                Account
+                SignIn
               </Link>
             </div>
           </div>
@@ -94,8 +102,8 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/contactus" element={<Contactus />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/" element={<Account />} />
+          <Route path="/" element={<Signup />} />
+          <Route path="/signin" element={<Account />} />
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>

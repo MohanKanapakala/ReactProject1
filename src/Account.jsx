@@ -12,7 +12,8 @@ function Account() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-   const { isAuthenticated } = useSelector((state) => state.authentication);
+  //  const { isAuthenticated } = useSelector((state) => state.authentication);
+  const isAuthenticated = useSelector((state) => state.authentication.isAuthenticated);
 
   
 
@@ -47,17 +48,17 @@ function Account() {
     
     
     
-    // let users = {userName,password}
-    // dispatch(loginUser(users));
-    dispatch(loginUser({ userName, password }));
-    setTimeout(() => {
-      if (isAuthenticated) {
-        navigate("/home");
-      }
-      else {
-        setPasswordError("Login failed--invalid credentials");
-      }
-    }, 100);
+     let users = {userName,password}
+     dispatch(loginUser(users));
+
+        useEffect(() => {
+          if (isAuthenticated) {
+            navigate("/home");
+          }
+        }, [isAuthenticated, navigate]);
+
+
+    
       
    
   };
@@ -67,14 +68,14 @@ function Account() {
   return (
     <div className="login-container">
       <form onSubmit={loginSuccess}>
-        <h2>Login Form</h2>
+        <h2>Login</h2>
 
-        <label>Username</label>
-        <input type="text" ref={userNameRef} />
+        <label>Username👤</label>
+        <input type="text" placeholder="Enter Username" ref={userNameRef} />
         {userNameError && <p style={{ color: "red" }}>{userNameError}</p>}
 
-        <label>Password</label>
-        <input type="password" ref={passwordRef} />
+        <label>Password🔒</label>
+        <input type="password" placeholder="Enter Password" ref={passwordRef} />
         {passwordError && <p style={{ color: "red" }}>{passwordError}</p>}
 
         <button type="submit">Sign In</button>

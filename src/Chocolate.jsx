@@ -13,7 +13,7 @@ function Chocolate() {
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const itemsPerPage = 5;
+  const itemsPerPage = 8;
 
   const totalPages = Math.ceil(chocolateItems.length / itemsPerPage);
 
@@ -54,7 +54,7 @@ function Chocolate() {
     <>
       <div className="choco-container">
         <ToastContainer position="top-right" autoClose={2000}></ToastContainer>
-        <h1 style={{ color: "yellow", fontWeight: "bolder", marginTop: "5px" }}>
+        <h1 style={{ color: "blue", fontWeight: "bolder", marginTop: "5px" }}>
           Chocolate Items ...
         </h1>
         <ul className="item mt-5">{chocoListItems}</ul>

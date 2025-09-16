@@ -9,7 +9,7 @@ const productsSlice = createSlice({
         price: 180,
         description:
           "Soft paneer cubes cooked in creamy tomato gravy with butter.",
-        imgUrl: "/images/vegitem1.jpeg",
+        imgUrl: "/images/paneer-butter.png",
       },
       {
         id: 2,
@@ -17,7 +17,7 @@ const productsSlice = createSlice({
         price: 150,
         description:
           "Fragrant basmati rice cooked with mixed vegetables and spices.",
-        imgUrl: "/images/vegbiryani.jpg",
+        imgUrl: "/images/veg-biryani.png",
       },
       {
         id: 3,
@@ -25,35 +25,35 @@ const productsSlice = createSlice({
         price: 120,
         description:
           "Potato and cauliflower cooked with onions, tomatoes, and spices.",
-        imgUrl: "/images/aloogobi.jpg",
+        imgUrl: "/images/aloo-gobi.webp",
       },
       {
         id: 4,
         name: "Dal Tadka",
         price: 100,
         description: "Yellow lentils tempered with ghee, garlic, and spices.",
-        imgUrl: "/images/dal tadka.jpeg",
+        imgUrl: "/images/dal-tadka.png",
       },
       {
         id: 5,
         name: "Veg Pulao",
         price: 130,
         description: "Aromatic rice cooked with fresh seasonal vegetables.",
-        imgUrl: "/images/vegpulao2.jpg",
+        imgUrl: "/images/veg-pulao.png",
       },
       {
         id: 7,
         name: "Masala Dosa",
         price: 90,
         description: "Crispy rice dosa filled with spicy potato masala.",
-        imgUrl: "/images/masala dosa.jpg",
+        imgUrl: "/images/masala-dosa.png",
       },
       {
         id: 8,
         name: "Palak Paneer",
         price: 170,
         description: "Paneer cubes simmered in creamy spinach gravy.",
-        imgUrl: "/images/palak paneer.jpeg",
+        imgUrl: "/images/palak-paneer.webp",
       },
       {
         id: 9,
@@ -67,7 +67,7 @@ const productsSlice = createSlice({
         name: "Vegetable Manchurian",
         price: 150,
         description: "Crispy veggie balls in tangy Indo-Chinese sauce.",
-        imgUrl: "/images/veg munchuria.jpg",
+        imgUrl: "/images/veg munchuria.png",
       },
 
       {
@@ -75,7 +75,7 @@ const productsSlice = createSlice({
         name: "Kadai Paneer",
         price: 175,
         description: "Paneer cubes cooked with capsicum and spicy masala.",
-        imgUrl: "/images/kadai paneer.jpg",
+        imgUrl: "/images/kadai-paneer.png",
       },
     ],
     nonVegItems: [
@@ -85,14 +85,14 @@ const productsSlice = createSlice({
         price: 220,
         description:
           "Aromatic basmati rice cooked with tender chicken and spices.",
-        imgUrl: "/images/chicken biryani.jpg",
+        imgUrl: "/images/chicken-biryani.png",
       },
       {
         id: 202,
         name: "Mutton Curry",
         price: 300,
         description: "Slow-cooked mutton in a rich and spicy curry.",
-        imgUrl: "/images/mutton curry.jpg",
+        imgUrl: "/images/mutton-curry.png",
       },
       {
         id: 203,
@@ -106,7 +106,7 @@ const productsSlice = createSlice({
         name: "Prawn Masala",
         price: 250,
         description: "Juicy prawns cooked in spicy onion-tomato gravy.",
-        imgUrl: "/images/prawns.jpg",
+        imgUrl: "/images/prawn-masala.png",
       },
       {
         id: 205,
@@ -114,14 +114,14 @@ const productsSlice = createSlice({
         price: 160,
         description:
           "Crispy fried chicken bites tossed with curry leaves and chilies.",
-        imgUrl: "/images/chicken 65.jpeg",
+        imgUrl: "/images/65.png",
       },
       {
         id: 206,
         name: "Egg Curry",
         price: 120,
         description: "Boiled eggs cooked in a spicy and tangy curry",
-        imgUrl: "/images/egg curry.jpg",
+        imgUrl: "/images/egg.png",
       },
       {
         id: 207,
@@ -499,6 +499,10 @@ let authSlice = createSlice({
         state.currentUser = null;
       }
     },
+    logoutUser: (state) => {
+      state.isAuthenticated = false;
+      state.currentUser = null;
+    }
   }
 })
 export let { registerUser, loginUser } = authSlice.actions;
