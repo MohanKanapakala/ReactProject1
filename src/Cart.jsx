@@ -10,7 +10,7 @@ import {
   incQuantity,
   removeFromCart,
 } from "./store";
-import "./Cart.css";
+import "./cart.css";
 import {
   calculateButtonDiscount,
   calculateTotal,
