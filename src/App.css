@@ -37,7 +37,7 @@ t);
 .logo h1 {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #fff;
+  color: #fff; /* Always white */
   text-shadow: 
     0 0 5px #00f,
     0 0 10px #0ff,
@@ -59,11 +59,11 @@ t);
   }
   50% {
     text-shadow: 
-      0 0 10px #ff0,
-      0 0 20px #ff0,
-      0 0 40px #f00,
-      0 0 80px #ff0;
-    color: #ff0;
+      0 0 1px #ff0,
+      0 0 2px #ff0,
+      0 0 4px #f00,
+      0 0 8px #ff0;
+    color: #fff; /* stays white */
   }
   100% {
     text-shadow: 
@@ -71,8 +71,8 @@ t);
       0 0 15px #0ff,
       0 0 30px #00f,
       0 0 60px #0ff,
-      0 0 100px #00f;
-    color: #0ff;
+      0 0 10px #00f;
+    color: #fff; /* stays white */
   }
 }
 

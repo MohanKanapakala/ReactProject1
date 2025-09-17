@@ -171,7 +171,7 @@ function Cart() {
   return (
     <>
       <ToastContainer position="top-right" autoClose={2000} />
-      <h2 style={{ color: "yellow", marginTop: "20px" }}>🛒 YOUR CART</h2>
+      <h2 className="cart-head">🛒 Your Cart</h2>
       <div className="cart-container">
         {/* Left: Cart Items */}
         <div className="cart-items">
@@ -202,7 +202,8 @@ function Cart() {
             {discountApply && (
               <>
                 <h5 style={{ marginBottom: "30px" }}>
-                  Discount {buttonDiscount}% Applied: ₹{discountAmount.toFixed(2)}
+                  Discount {buttonDiscount}% Applied: ₹
+                  {discountAmount.toFixed(2)}
                 </h5>
                 <p className="success-msg" style={{ marginBottom: "30px" }}>
                   🎉 Discount Applied Successfully
@@ -213,7 +214,8 @@ function Cart() {
               (couponResult.isValid ? (
                 <>
                   <h5 style={{ marginBottom: "30px" }}>
-                    Coupon "{couponcode}" Applied: ₹{couponResult.discountAmount}
+                    Coupon "{couponcode}" Applied: ₹
+                    {couponResult.discountAmount}
                   </h5>
                   <p className="success-msg" style={{ marginBottom: "30px" }}>
                     🎉 Coupon Applied Successfully

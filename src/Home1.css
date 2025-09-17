@@ -45,6 +45,61 @@
 .video-overlay h2 span {
   color: #ff5722;
 }
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+  text-decoration: none;
+  border-radius: 30px;
+  padding: 14px 30px;
+  font-weight: 600;
+  transition: 0.3s;
+  font-size: 1rem;
+  border: 2px solid #ffae42;
+}
+
+/* Primary filled button */
+.btn-primary {
+  background: #ffae42 !important;
+  color: black !important;
+  border: 1px solid black !important;
+  border-radius: 30px !important;
+  margin-top: 1px;
+  padding-top: 15px !important;
+}
+.btn-secondary {
+  background: #ffae42 !important;
+  color: black !important;
+  border: 1px solid black !important;
+  border-radius: 30px !important;
+  margin-top: 1px;
+  padding-top: 15px !important;
+}
+.btn-primary:hover {
+  background: #ff8800 !important;
+  color: #000;
+}
+
+/* Secondary outline button */
+.btn-secondary {
+   background: #ffae42 !important;
+  color: black !important;
+}
+
+.btn-secondary:hover {
+  background: #ff8800 !important;
+  color: #000;
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translate(-50%, 40px); }
+  100% { opacity: 1; transform: translate(-50%, 0); }
+}
 
 @keyframes fadeInUp {
   0% { opacity: 0; transform: translate(-50%, 40px); }

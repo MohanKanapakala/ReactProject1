@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Account.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,10 +12,17 @@ function Account() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  //  const { isAuthenticated } = useSelector((state) => state.authentication);
-  const isAuthenticated = useSelector((state) => state.authentication.isAuthenticated);
+  const isAuthenticated = useSelector(
+    (state) => state.authentication.isAuthenticated
+  );
 
-  
+  // ✅ React to authentication change
+  useEffect(() => {
+    if (isAuthenticated) {
+      alert("Login successful");
+      navigate("/"); // redirect home
+    }
+  }, [isAuthenticated, navigate]);
 
   const loginSuccess = (e) => {
     e.preventDefault();
@@ -23,7 +30,6 @@ function Account() {
     // Reset errors
     setUserNameError("");
     setPasswordError("");
-
 
     let userName = userNameRef.current.value.trim();
     let password = passwordRef.current.value.trim();
@@ -40,30 +46,10 @@ function Account() {
       return;
     }
 
-  //   if (userName === "mohan" && password === "mohan123") {
-  //     navigate("/home");
-  //   } else {
-  //     alert("Invalid Login Details..");
-    //   }
-    
-    
-    
-     let users = {userName,password}
-     dispatch(loginUser(users));
-
-        useEffect(() => {
-          if (isAuthenticated) {
-            navigate("/home");
-          }
-        }, [isAuthenticated, navigate]);
-
-
-    
-      
-   
+    let user = { userName, password };
+    dispatch(loginUser(user));
+    // ❌ no need to check isAuthenticated here
   };
-
-    
 
   return (
     <div className="login-container">

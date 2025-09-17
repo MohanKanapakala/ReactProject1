@@ -2,9 +2,9 @@ import React from "react";
 import Home from "./Home";
 import Veg from "./Veg";
 import Nonveg from "./Nonveg";
-import Milk from "./milk";
+import Milk from "./Milk";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import Chocolate from "./chocolate";
+import Chocolate from "./Chocolate";
 import "./App.css";
 import Cart from "./Cart";
 import Aboutus from "./Aboutus";
@@ -50,20 +50,41 @@ function App() {
               <Link to="/orders" className=" nav-links">
                 📦 Orders
               </Link>
-              
-              <Link to="/" className=" nav-links">
-                SignUp
-              </Link>
-              <Link to="/signin" className=" nav-links">
-                <MdAccountCircle size={28} style={{ marginRight: "5px" }} />
-                SignIn
-              </Link>
+
+              {isAuthenticated ? (
+                <>
+                  <span className="nav-links">
+                    👋 Welcome, {user?.userName}
+                  </span>
+                  <button
+                    onClick={() => dispatch(logoutUser())}
+                    className="nav-links"
+                    style={{
+                      background: "transparent",
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    🚪 Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link to="/signup" className="nav-links">
+                    SignUp
+                  </Link>
+                  <Link to="/signin" className="nav-links">
+                    <MdAccountCircle size={28} style={{ marginRight: "5px" }} />
+                    SignIn
+                  </Link>
+                </>
+              )}
             </div>
           </div>
 
           {/* Row 2: Category Links */}
           <div className="navbar-bottom">
-            <Link to="/home" className=" nav-links">
+            <Link to="/" className=" nav-links">
               🏠Home
             </Link>
             <Link to="/veg" className=" nav-links">
@@ -92,7 +113,7 @@ function App() {
 
         {/* ✅ Routes */}
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/veg" element={<Veg />} />
           <Route path="/nonveg" element={<Nonveg />} />
           <Route path="/bakery" element={<Bakery />} />
@@ -102,7 +123,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/contactus" element={<Contactus />} />
-          <Route path="/" element={<Signup />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Account />} />
           <Route path="*" element={<NotFound />}></Route>
         </Routes>

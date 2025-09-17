@@ -14,9 +14,7 @@ function Home1() {
         playsInline
       />
       <div className="video-overlay">
-        <Link to="/app/home" className="visit-btn">
-          Visit FoodiePlace
-        </Link>
+       
         <h1>
           Welcome To <span>FoodiePlace</span>
         </h1>
@@ -26,6 +24,14 @@ function Home1() {
         <h2>
           Memorable <span>Moments</span>
         </h2>
+        <div className="hero-buttons">
+                    {/* <Link to="/veg" className="btn-primary">
+                      Order Now
+                    </Link>
+                    <Link to="/contactus" className="btn-secondary">
+                      Contact Us
+                    </Link> */}
+                  </div>
       </div>
     </div>
   );

@@ -60,7 +60,7 @@ const productsSlice = createSlice({
         name: "Mushroom Curry",
         price: 140,
         description: "Fresh mushrooms cooked with onion-tomato masala.",
-        imgUrl: "/images/mushroom.jpg",
+        imgUrl: "/images/mushroom2.png",
       },
       {
         id: 10,
@@ -76,6 +76,14 @@ const productsSlice = createSlice({
         price: 175,
         description: "Paneer cubes cooked with capsicum and spicy masala.",
         imgUrl: "/images/kadai-paneer.png",
+      },
+      {
+        id: 12,
+        name: "Noodles",
+        price: 60,
+        description:
+          "Stir-fried strands tossed with veggies and flavors for a quick, tasty bite.",
+        imgUrl: "/images/noodles.png",
       },
     ],
     nonVegItems: [
@@ -99,7 +107,7 @@ const productsSlice = createSlice({
         name: "Fish Fry",
         price: 180,
         description: "Crispy fried fish marinated with South Indian spices.",
-        imgUrl: "/images/fish-curry.png",
+        imgUrl: "/images/fish curry.png",
       },
       {
         id: 204,
@@ -129,14 +137,14 @@ const productsSlice = createSlice({
         price: 280,
         description:
           "Tender chicken marinated with herbs and grilled to perfection.",
-        imgUrl: "/images/grilled chicken.jpg",
+        imgUrl: "/images/grilled.webp",
       },
       {
         id: 208,
         name: "Butter Chicken",
         price: 270,
         description: "Boneless chicken cooked in creamy tomato butter gravy.",
-        imgUrl: "/images/butter-chicken.jpg",
+        imgUrl: "/images/butter-chicken.webp",
       },
       {
         id: 209,
@@ -144,14 +152,14 @@ const productsSlice = createSlice({
         price: 240,
         description:
           "Chicken marinated in yogurt and spices, roasted in tandoor.",
-        imgUrl: "/images/tandoori.jpg",
+        imgUrl: "/images/tandoori.webp",
       },
       {
         id: 210,
         name: "Mutton Biryani",
         price: 320,
         description: "Flavorful basmati rice cooked with tender mutton pieces.",
-        imgUrl: "/images/mutton biryani.jpg",
+        imgUrl: "/images/mutton biryani.webp",
       },
       {
         id: 211,
@@ -159,7 +167,7 @@ const productsSlice = createSlice({
         price: 200,
         description:
           "Fresh fish simmered in tangy and spicy coconut-based curry.",
-        imgUrl: "/images/fish curry.png",
+        imgUrl: "/images/fish.png",
       },
       {
         id: 212,
@@ -167,7 +175,7 @@ const productsSlice = createSlice({
         price: 280,
         description:
           "Aromatic basmati rice layered with juicy prawns and spices.",
-        imgUrl: "/images/prwans biryani.jpg",
+        imgUrl: "/images/prawn-biryani.png",
       },
     ],
     milkItems: [
@@ -176,14 +184,14 @@ const productsSlice = createSlice({
         name: "Fresh Cow Milk",
         price: 28,
         description: "Pure and fresh cow milk rich in calcium and protein.",
-        imgUrl: "/images/cow-milk.jpg",
+        imgUrl: "/images/milk1.png",
       },
       {
         id: 302,
         name: "Flavored Milk (Chocolate)",
         price: 40,
         description: "Delicious chocolate-flavored milk drink.",
-        imgUrl: "/images/choco-milk.jpg",
+        imgUrl: "/images/milk-2.png",
       },
       {
         id: 303,
@@ -197,7 +205,7 @@ const productsSlice = createSlice({
         name: "Badam Milk",
         price: 50,
         description: "Milk enriched with almonds and cardamom.",
-        imgUrl: "/images/badam-milk.jpg",
+        imgUrl: "/images/milk-3.png",
       },
       {
         id: 305,
@@ -211,14 +219,14 @@ const productsSlice = createSlice({
         name: "Salt Lassi",
         price: 40,
         description: "Traditional salty lassi with a tangy taste.",
-        imgUrl: "/images/salt-lassi.jpg",
+        imgUrl: "/images/milk-4.png",
       },
       {
         id: 307,
         name: "Mango Lassi",
         price: 55,
         description: "Delicious blend of yogurt and mango pulp.",
-        imgUrl: "/images/mango-lassi.jpg",
+        imgUrl: "/images/milk-5.png",
       },
       {
         id: 308,
@@ -232,14 +240,14 @@ const productsSlice = createSlice({
         name: "Milkshake (Vanilla)",
         price: 60,
         description: "Creamy vanilla milkshake made with pure milk.",
-        imgUrl: "/images/vanilla-milkshake.jpg",
+        imgUrl: "/images/milk-6.png",
       },
       {
         id: 310,
         name: "Milkshake (Oreo)",
         price: 70,
         description: "Thick and delicious Oreo milkshake.",
-        imgUrl: "/images/oreo-milkshake.jpg",
+        imgUrl: "/images/milk-7.png",
       },
     ],
     chocolateItems: [
@@ -248,70 +256,64 @@ const productsSlice = createSlice({
         name: "Cadbury Dairy Milk",
         price: 40,
         description: "Classic creamy milk chocolate, most loved in India.",
-        imgUrl: "/images/dairy-milk.jpg",
+        imgUrl: "/images/chh1.png",
       },
       {
         id: 402,
         name: "Cadbury Dairy Milk Silk",
         price: 80,
         description: "Rich, smooth, and extra creamy chocolate bar.",
-        imgUrl: "/images/dairy-milk-silk.jpg",
+        imgUrl: "/images/choo1.png",
       },
       {
         id: 403,
         name: "5 Star",
         price: 20,
         description: "Chewy caramel-filled chocolate bar from Cadbury.",
-        imgUrl: "/images/5star.jpg",
+        imgUrl: "/images/cho1.png",
       },
       {
         id: 404,
         name: "Perk",
         price: 10,
         description: "Crispy wafer coated with chocolate by Cadbury.",
-        imgUrl: "/images/perk.jpg",
+        imgUrl: "/images/ch4.png",
       },
       {
         id: 405,
         name: "Munch",
         price: 10,
         description: "Nestlé’s crunchy wafer with chocolate coating.",
-        imgUrl: "/images/munch.jpg",
+        imgUrl: "/images/ch5.png",
       },
       {
         id: 406,
         name: "KitKat",
         price: 30,
         description: "Nestlé’s crispy wafer fingers covered with chocolate.",
-        imgUrl: "/images/kitkat.jpg",
+        imgUrl: "/images/ch6.png",
       },
       {
         id: 407,
         name: "Bar One",
         price: 25,
         description: "Nestlé’s nougat and caramel filled chocolate bar.",
-        imgUrl: "/images/Bar-one.jpg",
+        imgUrl: "/images/ch7.png",
       },
-      {
-        id: 408,
-        name: "Amul Dark Chocolate",
-        price: 100,
-        description: "Indian brand offering rich dark chocolate.",
-        imgUrl: "/images/amul-dark.jpg",
-      },
+
       {
         id: 409,
         name: "Amul Fruit & Nut",
         price: 120,
         description: "Delicious chocolate with dry fruits and nuts.",
-        imgUrl: "/images/amul-fruitnut.jpg",
+        imgUrl: "/images/ch8.png",
       },
       {
         id: 410,
         name: "Campco Chocolate",
         price: 50,
         description: "South Indian cooperative brand chocolate.",
-        imgUrl: "/images/Campco-choco.jpg",
+        imgUrl: "/images/ch9.png",
       },
 
       {
@@ -319,7 +321,7 @@ const productsSlice = createSlice({
         name: "LuvIt ChocWich",
         price: 30,
         description: "Modern Indian brand with creamy chocolate wafers.",
-        imgUrl: "/images/LuvIt ChocWich.jpg",
+        imgUrl: "/images/ch10.png",
       },
     ],
     bakeryItems: [
@@ -328,7 +330,7 @@ const productsSlice = createSlice({
         name: "Margherita Pizza",
         price: 250,
         description: "Classic pizza with mozzarella cheese and fresh basil.",
-        imgUrl: "/images/pizza1.jpg",
+        imgUrl: "/images/bak1.png",
       },
       {
         id: 602,
@@ -336,7 +338,7 @@ const productsSlice = createSlice({
         price: 140,
         description:
           "Crispy veg patty with lettuce, tomato, and mayo in a soft bun.",
-        imgUrl: "/images/veggie-burger.webp",
+        imgUrl: "/images/veg-burger.png",
       },
       {
         id: 603,
@@ -417,6 +419,30 @@ const productsSlice = createSlice({
           "Crispy fried spring rolls filled with noodles and veggies.",
         imgUrl: "/images/bk-13.png",
       },
+      {
+        id: 615,
+        name: "Samosa",
+        price: 25,
+        description:
+          "A crispy golden pastry filled with spiced potato and peas, perfect for snacking.",
+        imgUrl: "/images/samosa1.png",
+      },
+      {
+        id: 616,
+        name: "Cake",
+        price: 250,
+        description:
+          "A soft, fluffy delight layered with sweetness for every celebration.",
+        imgUrl: "/images/cake.png",
+      },
+      {
+        id: 617,
+        name: "Ice Cream",
+        price: 150,
+        description:
+          "A creamy, chilled dessert that melts happiness in every scoop.",
+        imgUrl: "/images/ice-cream.png",
+      },
     ],
   },
   reducers: {},
@@ -479,22 +505,28 @@ let ordersSlice = createSlice({
 export let { addOrder } = ordersSlice.actions;
 
 
+let savedAuth = JSON.parse(localStorage.getItem("authentication"));
 //authenticationSlice
 let authSlice = createSlice({
   name: "authentication",
-  initialState: { users:[], currentUser:null , isAuthenticated: false },
+  initialState: savedAuth || {
+    users: [],
+    currentUser: null,
+    isAuthenticated: false,
+  },
   reducers: {
     registerUser: (state, action) => {
       state.users.push(action.payload);
     },
     loginUser: (state, action) => {
       const { userName, password } = action.payload;
-      let user = state.users.find((user) => user.userName === userName && user.password === password);
+      let user = state.users.find(
+        (user) => user.userName === userName && user.password === password
+      );
       if (user) {
         state.isAuthenticated = true;
-       state.currentUser = user; 
-      } 
-      else {
+        state.currentUser = user;
+      } else {
         state.isAuthenticated = false;
         state.currentUser = null;
       }
@@ -502,9 +534,9 @@ let authSlice = createSlice({
     logoutUser: (state) => {
       state.isAuthenticated = false;
       state.currentUser = null;
-    }
-  }
-})
+    },
+  },
+});
 export let { registerUser, loginUser } = authSlice.actions;
 
 const store = configureStore({
@@ -521,5 +553,13 @@ const store = configureStore({
 store.subscribe(() => {
   localStorage.setItem("cart", JSON.stringify(store.getState().cart));
 })
+
+// ✅ Save authentication state on every change
+store.subscribe(() => {
+  localStorage.setItem(
+    "authentication",
+    JSON.stringify(store.getState().authentication)
+  );
+});
 
 export default store;

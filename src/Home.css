@@ -1,3 +1,10 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
 /* ===== Fullscreen Video Hero ===== */
 .video-container {
   position: relative;
@@ -15,7 +22,7 @@
 
 .video-overlay {
   position: absolute;
-  bottom: 50%;
+  bottom: 40%;
   left: 50%;
   transform: translateX(-50%);
   color: #fff;
@@ -43,7 +50,58 @@
 }
 
 .video-overlay h2 span {
-  color: #ff5722;
+  color: blue;
+  font-weight: 700;
+}
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+  text-decoration: none;
+  border-radius: 30px;
+  padding: 14px 30px;
+  font-weight: 600;
+  transition: 0.3s;
+  font-size: 1rem;
+  border: 2px solid #ffae42;
+}
+
+/* Primary filled button */
+.btn-primary {
+  background: #ffae42 !important;
+  color: black !important;
+  border: 1px solid black !important;
+  border-radius: 30px !important;
+  margin-top: 1px;
+  padding-top: 15px !important;
+}
+.btn-secondary {
+  background: #ffae42 !important;
+  color: black !important;
+  border: 1px solid black !important;
+  border-radius: 30px !important;
+  margin-top: 1px;
+  padding-top: 15px !important;
+}
+.btn-primary:hover {
+  background: #ff8800 !important;
+  color: #000;
+}
+
+/* Secondary outline button */
+.btn-secondary {
+   background: #ffae42 !important;
+  color: black !important;
+}
+
+.btn-secondary:hover {
+  background: #ff8800 !important;
+  color: #000;
 }
 
 @keyframes fadeInUp {
@@ -124,12 +182,7 @@
 
 .category-box {
   /* background: linear-gradient(135deg, #fff, #f9f9f9); */
-  background: radial-gradient(circle at center, 
-  #ffffff 0%, 
-  #d6e6fa 40%, 
-  #e3d3f7 70%, 
-  #f5b6b6 100% 
-);
+ background-color: white;
   border-radius: 15px;
   padding: 20px;
   transition: all 0.4s ease-in-out;
@@ -151,11 +204,36 @@
   display: block;
 }
 
+.marquee-background {
+   background: linear-gradient(135deg, #000000, #0f2027, #2c5364);
+  padding: 15px 0;   /* space above and below items */
+  width: 100%;       /* make it full width */
+}
+
+.marquee-items {
+  display: flex;
+  gap: 20px;
+}
+
+.food-item {
+  display: inline-block;
+  text-align: center;
+  color: white; /* make text visible on black */
+}
+
+.food-item img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+
 .category-box h3 {
   font-size: 1.3rem;
   font-weight: bold;
   color: blue;
   margin-top: 10px;
+  text-decoration: none !important;
 }
 .category-box h3:hover{
 color: green;
@@ -301,7 +379,7 @@ text-decoration: none;
  ) !important;
 }
 .rev-heading{
-  color: blue;
+  color: #ff9800;
   font-size: 42px;
     font-weight: 700;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
@@ -311,7 +389,7 @@ text-decoration: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 35px !important;
   margin-bottom: 30px;
   
 }

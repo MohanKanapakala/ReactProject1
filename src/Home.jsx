@@ -78,137 +78,148 @@ function Home() {
           <h2>
             Memorable <span>Moments</span>
           </h2>
+          <div className="hero-buttons">
+            <Link to="/veg" className="btn-primary">
+              Order Now
+            </Link>
+            <Link to="/contactus" className="btn-secondary">
+              Contact Us
+            </Link>
+          </div>
         </div>
       </div>
 
       {/* autoScroll items */}
       <br />
-      <div>
+      <div className="food-carousel">
         <h2 className="food-sec">Visit Our Best Food Items</h2>
-        <div className="first-carosol">
-          <Slider {...settings1}>
-            <div className="food-item">
-              <a href="/nonveg">
-                <img src="/images/chicken-biryani.png" alt="Chicken Biryani" />
-              </a>
 
-              <strong>Chicken Biryani</strong>
-            </div>
+        <div className="marquee-background">
+          <marquee behavior="scroll" direction="right" scrollamount="10">
+            <div className="marquee-items">
+              <div className="food-item">
+                <a href="/nonveg">
+                  <img
+                    src="/images/chicken-biryani.png"
+                    alt="Chicken Biryani"
+                  />
+                </a>
+                <strong>Chicken Biryani</strong>
+              </div>
 
-            <div className="food-item">
-              <a href="/nonveg">
-                <img src="/images/tandoori.jpg" alt="Tandoori Chicken" />
-              </a>
-              <strong>Tandoori Chicken</strong>
-            </div>
+              <div className="food-item">
+                <a href="/nonveg">
+                  <img src="/images/tandoori.webp" alt="Tandoori Chicken" />
+                </a>
+                <strong>Tandoori Chicken</strong>
+              </div>
 
-            <div className="food-item">
-              <a href="/nonveg">
-                <img src="/images/mutton-curry.png" alt="Mutton Curry" />
-              </a>
-              <strong>Mutton Curry</strong>
-            </div>
+              <div className="food-item">
+                <a href="/nonveg">
+                  <img src="/images/mutton-curry.png" alt="Mutton Curry" />
+                </a>
+                <strong>Mutton Curry</strong>
+              </div>
 
-            <div className="food-item">
-              <a href="/veg">
-                <img src="/images/paneer-butter.png" alt="Paneer Butter" />
-              </a>
-              <strong>Paneer Butter</strong>
-            </div>
+              <div className="food-item">
+                <a href="/veg">
+                  <img src="/images/paneer-butter.png" alt="Paneer Butter" />
+                </a>
+                <strong>Paneer Butter</strong>
+              </div>
 
-            <div className="food-item">
-              <a href="/veg">
-                <img src="/images/masala-dosa.png" alt="Masala Dosa" />
-              </a>
-              <strong>Masala Dosa</strong>
-            </div>
+              <div className="food-item">
+                <a href="/veg">
+                  <img src="/images/masala-dosa.png" alt="Masala Dosa" />
+                </a>
+                <strong>Masala Dosa</strong>
+              </div>
 
-            <div className="food-item">
-              <a href="/veg">
-                <img src="/images/veg munchuria.png" alt="Veg Munchuria" />
-              </a>
-              <strong>Veg Munchuria</strong>
-            </div>
+              <div className="food-item">
+                <a href="/veg">
+                  <img src="/images/veg munchuria.png" alt="Veg Munchuria" />
+                </a>
+                <strong>Veg Munchuria</strong>
+              </div>
 
-            <div className="food-item">
-              <a href="/bakery">
-                <img src="/images/pizza.png" alt="Pizza" />
-              </a>
-              <strong>Pizza</strong>
-            </div>
+              <div className="food-item">
+                <a href="/bakery">
+                  <img src="/images/pizza.png" alt="Pizza" />
+                </a>
+                <strong>Pizza</strong>
+              </div>
 
-            <div className="food-item">
-              <a href="/bakery">
-                <img src="/images/burger.png" alt="Burger" />
-              </a>
-              <strong>Burger</strong>
-            </div>
+              <div className="food-item">
+                <a href="/bakery">
+                  <img src="/images/burger.png" alt="Burger" />
+                </a>
+                <strong>Burger</strong>
+              </div>
 
-            <div className="food-item">
-              <a href="/bakery">
-                <img src="/images/cake.png" alt="Cake" />
-              </a>
-              <strong>Cake</strong>
-            </div>
+              <div className="food-item">
+                <a href="/bakery">
+                  <img src="/images/cake.png" alt="Cake" />
+                </a>
+                <strong>Cake</strong>
+              </div>
 
-            <div className="food-item">
-              <a href="/bakery">
-                <img src="/images/chicken-roll.png" alt="Chicken Roll" />
-              </a>
-              <strong>Chicken Roll</strong>
-            </div>
+              <div className="food-item">
+                <a href="/bakery">
+                  <img src="/images/chicken-roll.webp" alt="Chicken Roll" />
+                </a>
+                <strong>Chicken Roll</strong>
+              </div>
 
-            <div className="food-item">
-              <a href="/milk">
-                <img src="/images/vanilla-milkshake.png" alt="Vanilla" />
-              </a>
-              <strong>Vanilla</strong>
-            </div>
+              <div className="food-item">
+                <a href="/milk">
+                  <img src="/images/milk-6.png" alt="Vanilla" />
+                </a>
+                <strong>Vanilla</strong>
+              </div>
 
-            <div className="food-item">
-              <a href="/milk">
-                <img src="/images/oreo-milkshake.png" alt="Oreo" />
-              </a>
-              <strong>Oreo</strong>
-            </div>
+              <div className="food-item">
+                <a href="/milk">
+                  <img src="/images/milk-7.png" alt="Oreo" />
+                </a>
+                <strong>Oreo</strong>
+              </div>
 
-            <div className="food-item">
-              <a href="/milk">
-                <img src="/images/lassi.png" alt="Lassi" />
-              </a>
-              <strong>Lassi</strong>
-            </div>
+              <div className="food-item">
+                <a href="/milk">
+                  <img src="/images/lassi.png" alt="Lassi" />
+                </a>
+                <strong>Lassi</strong>
+              </div>
 
-            <div className="food-item">
-              <a href="/bakery">
-                <img src="/images/ice-cream.png" alt="Ice Cream" />
-              </a>
-              <strong>Ice Cream</strong>
-            </div>
+              <div className="food-item">
+                <a href="/bakery">
+                  <img src="/images/ice-cream.png" alt="Ice Cream" />
+                </a>
+                <strong>Ice Cream</strong>
+              </div>
 
-            <div className="food-item">
-              <a href="/bakery">
-                <img src="/images/samosa.png" alt="Samosa" />
-              </a>
-              <strong>Samosa</strong>
-            </div>
+              <div className="food-item">
+                <a href="/bakery">
+                  <img src="/images/samosa1.png" alt="Samosa" />
+                </a>
+                <strong>Samosa</strong>
+              </div>
 
-            <div className="food-item">
-              <a href="/veg">
-                <img src="/images/noodles.png" alt="Noodles" />
-              </a>
-              <strong>Noodles</strong>
+              <div className="food-item">
+                <a href="/veg">
+                  <img src="/images/noodles.png" alt="Noodles" />
+                </a>
+                <strong>Noodles</strong>
+              </div>
             </div>
-
-            <div className="food-item">
-              <a href="/veg">
-                <img src="/images/paratha.png" alt="Paratha" />
-              </a>
-              <strong>Paratha</strong>
-            </div>
-          </Slider>
+          </marquee>
         </div>
       </div>
+
+      {/* marqueee */}
+
+
+      
 
       {/* ===== Second Categories Carousel ===== */}
       <div className="carousel-container">
