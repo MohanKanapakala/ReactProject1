@@ -1,9 +1,26 @@
 /* Container for the whole page */
 .chocolate-container {
-  background: linear-gradient(135deg, #ffffff, #fff7f0, #ffe5c4);
+  background: linear-gradient(to bottom, 
+    #d6e6fa 0%, 
+    #e3d3f7 50%, 
+    #f5b6b6 100%
+  ) !important;
   min-height: 100vh;
   padding: 40px 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.choco-head span{
+  background: linear-gradient(90deg, #000000, #3e2723, #795548);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: inline-block;
+
+   font-size: 42px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    margin-top: 20px;
+    font-style: italic;
+
 }
 
 /* Grid container */
@@ -106,7 +123,6 @@
 }
 
 .previous-button, .next-button {
-  background: linear-gradient(135deg, #000000, #0f2027, #2c5364) !important;
   color: white;
 }
 
@@ -116,8 +132,7 @@
 }
 
 .pagenation-buttons {
-  background-color: maroon !important;
-  color: white !important;
+ 
 }
 
 .pagenation-buttons:hover {

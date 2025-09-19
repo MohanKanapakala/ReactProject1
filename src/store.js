@@ -493,9 +493,11 @@ const cartSlice = createSlice({
 });
 export let { addToCart, removeFromCart, incQuantity, decQuantity,clearCart } = cartSlice.actions;
 
+//get the localstorage data and assign to initialState
+const savedOrder = JSON.parse(localStorage.getItem("orders"))||[]
 let ordersSlice = createSlice({
   name: "orders",
-  initialState: [],
+  initialState: savedOrder,
   reducers: {
     addOrder: (state, action) => {
       state.push(action.payload);
@@ -537,7 +539,7 @@ let authSlice = createSlice({
     },
   },
 });
-export let { registerUser, loginUser } = authSlice.actions;
+export let { registerUser, loginUser,logoutUser } = authSlice.actions;
 
 const store = configureStore({
   reducer: {
@@ -561,5 +563,9 @@ store.subscribe(() => {
     JSON.stringify(store.getState().authentication)
   );
 });
+// ✅ Save Orders state on every change
+store.subscribe(() => {
+  localStorage.setItem("orders", JSON.stringify(store.getState().orders));
+})
 
 export default store;

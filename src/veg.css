@@ -1,13 +1,25 @@
 /* Container for the whole page */
 .veg-container {
-  background: linear-gradient(to bottom, 
+   background: linear-gradient(to bottom, 
     #d6e6fa 0%, 
     #e3d3f7 50%, 
     #f5b6b6 100%
-  ) !important;
+  ) !important; 
   min-height: 100vh;
   padding: 40px 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.veg-head span{
+background: linear-gradient(90deg, #000000, #003300, #00ff88);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: inline-block;
+   font-size: 42px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    margin-top: 20px;
+    font-style: italic;
+
 }
 
 
@@ -31,7 +43,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: linear-gradient(135deg, #000000, #0f2027, #2c5364);
+  /* background: linear-gradient(135deg, #000000, #0f2027, #2c5364); */
+  background: linear-gradient(90deg, #000428, #004e92) !important;
+
   border-radius: 12px;
   overflow: hidden;
    transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
@@ -115,7 +129,7 @@
 }
 
 .previous-button, .next-button {
-  background: linear-gradient(135deg, #000000, #0f2027, #2c5364) !important;
+  background-color: red !important;
   color: white;
 }
 
@@ -125,8 +139,8 @@
 }
 
 .pagenation-buttons {
-  background-color: maroon !important;
-  color: white !important;
+ background: linear-gradient(90deg, yellow, gold); /* ✅ new gradient look */
+  color: black !important;
 }
 
 .pagenation-buttons:hover {

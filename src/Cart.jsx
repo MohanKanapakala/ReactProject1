@@ -39,7 +39,7 @@ function Cart() {
       timer: 10000,
       timerProgressBar: true,
     }).then(() => {
-      confetti({ particleCount: 3000, spread: 90 });
+      confetti({ particleCount: 3000, spread: 180 });
     });
   };
 
@@ -65,7 +65,7 @@ function Cart() {
     let result = getDiscountCoupon(couponcode, totalAmount);
     setCouponResult(result);
     setIsApplied(true);
-    if (result.isValid) {
+    if (result.isValid && cartItems.length !== 0) {
       confetti({ particleCount: 600, spread: 120, origin: { y: 0.6 } });
     }
   };
@@ -171,7 +171,7 @@ function Cart() {
   return (
     <>
       <ToastContainer position="top-right" autoClose={2000} />
-      <h2 className="cart-head">🛒 Your Cart</h2>
+      <h2 className="card-head">🛒 Your Cart</h2>
       <div className="cart-container">
         {/* Left: Cart Items */}
         <div className="cart-items">
@@ -195,15 +195,16 @@ function Cart() {
         <div className="cart-summary">
           {/* Price Details */}
           <div className="summary-section">
-            <h1>💰 Cart Summary </h1>
+            <h1>
+              💰 <span>Cart Summary </span>
+            </h1>
             <h5 style={{ margin: "20px" }}>
               Actual Amount: ₹{totalAmount.toFixed(2)}
             </h5>
             {discountApply && (
               <>
                 <h5 style={{ marginBottom: "30px" }}>
-                  Discount {buttonDiscount}% Applied: ₹
-                  {discountAmount.toFixed(2)}
+                  🎯Button Discount({buttonDiscount}%): ₹{discountAmount.toFixed(2)}
                 </h5>
                 <p className="success-msg" style={{ marginBottom: "30px" }}>
                   🎉 Discount Applied Successfully
@@ -212,22 +213,26 @@ function Cart() {
             )}
             {isApplied &&
               (couponResult.isValid ? (
-                <>
-                  <h5 style={{ marginBottom: "30px" }}>
-                    Coupon "{couponcode}" Applied: ₹
-                    {couponResult.discountAmount}
-                  </h5>
-                  <p className="success-msg" style={{ marginBottom: "30px" }}>
-                    🎉 Coupon Applied Successfully
-                  </p>
-                </>
+                cartItems.length === 0 ? (
+                  alert("😞 Please add at least one item")
+                ) : (
+                  <>
+                    <h5 style={{ marginBottom: "30px" }}>
+                      🎟️ Coupon Discount: ₹{couponResult.discountAmount}
+                    </h5>
+                    <p className="success-msg" style={{ marginBottom: "30px" }}>
+                      🎉 Coupon Applied Successfully
+                    </p>
+                  </>
+                )
               ) : (
                 <p className="error-msg" style={{ marginBottom: "30px" }}>
                   ❌ Invalid coupon code!
                 </p>
               ))}
+
             <h3 className="final-amount" style={{ marginBottom: "30px" }}>
-              Final Amount: <b> ₹{netAmount.toFixed(2)}</b>
+              💰 Final Amount: <b> ₹{netAmount.toFixed(2)}</b>
             </h3>
           </div>
 
@@ -236,6 +241,10 @@ function Cart() {
             <h2>🎯 Button Discounts</h2>
             <button
               onClick={() => {
+                if (cartItems.length === 0) {
+                  alert("😞 Please add at least one item");
+                  return; // stop execution
+                }
                 setButtonDiscount(5);
                 setDiscountApply(true);
                 confetti({
@@ -250,6 +259,10 @@ function Cart() {
             </button>
             <button
               onClick={() => {
+                if (cartItems.length === 0) {
+                  alert("😞 Please add at least one item");
+                  return; // stop execution
+                }
                 setButtonDiscount(10);
                 setDiscountApply(true);
                 confetti({
@@ -264,6 +277,10 @@ function Cart() {
             </button>
             <button
               onClick={() => {
+                if (cartItems.length === 0) {
+                  alert("😞 Please add at least one item");
+                  return; // stop execution
+                }
                 setButtonDiscount(15);
                 setDiscountApply(true);
                 confetti({
@@ -280,11 +297,6 @@ function Cart() {
               onClick={() => {
                 setButtonDiscount(0);
                 setDiscountApply(false);
-                // confetti({
-                //   particleCount: 1000,
-                //   spread: 90,
-                //   origin: { y: 0.6 },
-                // });
               }}
               className="reset-btn"
             >
@@ -338,6 +350,14 @@ function Cart() {
                   className="qrcode"
                 />
                 <p>UPI ID: 6305927818@ybl</p>
+              </div>
+            )}
+            {paymentMethod === "card" && (
+              <div>
+                <p>
+                  Sorry😞..<br></br>Credit/Debit card payment coming soon..!!
+                  Please pay with QR Code
+                </p>
               </div>
             )}
           </div>

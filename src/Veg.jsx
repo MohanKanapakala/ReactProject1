@@ -52,8 +52,8 @@ function Veg() {
     <>
       <div className="veg-container">
         <ToastContainer position="top-right" autoClose={2000}></ToastContainer>
-        <h1 style={{ color: "blue", fontWeight: "bolder", marginTop: "10px" }}>
-          Veg Items...
+        <h1 className="veg-head">
+          🥗<span>Veg Items ...</span>
         </h1>
         {/* Use the prepared list */}
         <ul className="item mt-5">{vegListItems}</ul>

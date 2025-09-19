@@ -85,7 +85,7 @@ min-height: 100vh;
   #d6e6fa 0%, 
   #e3d3f7 50%, 
   #f5b6b6 100%
-);
+) !important;
 min-height: 100vh;
 
 }
@@ -95,11 +95,8 @@ min-height: 100vh;
 .contact-form {
   flex: 2;
   /* background: linear-gradient(135deg, #ffffff, #fff7f0, #ffe5c4); */
-  background: linear-gradient(to bottom, 
-  #d6e6fa 0%, 
-  #e3d3f7 50%, 
-  #f5b6b6 100%
-);
+   
+
 min-height: 100vh;
 
 
@@ -109,7 +106,14 @@ min-height: 100vh;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 .contact-form h2 {
-  margin-bottom: 10px;
+background: linear-gradient(90deg, #000000, #001f4d, #0077ff);-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: inline-block;
+   font-size: 32px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    margin-top: 20px;
+    font-style: italic;
 }
 .contact-form p {
   margin-bottom: 20px;
@@ -155,7 +159,8 @@ min-height: 100vh;
   gap: 20px;
 }
 .info-card {
-  background: linear-gradient(135deg, #000000, #0f2027, #2c5364);
+    background: linear-gradient(90deg, #000428, #004e92) !important;
+
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -170,4 +175,84 @@ min-height: 100vh;
   font-size: 24px;
   color: orange;
   margin-bottom: 10px;
+}
+/* ✅ Responsive Styles */
+
+/* Tablet (≤992px) */
+@media (max-width: 992px) {
+  .hero-section {
+    height: auto;
+    padding: 60px 20px;
+  }
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  .hero-section button {
+    padding: 10px 18px;
+    font-size: 15px;
+  }
+  .contact-section {
+    gap: 20px;
+    padding: 30px;
+    flex-direction: column; /* Stack form & info cards */
+  }
+  .contact-form,
+  .contact-info {
+    min-height: auto;
+    width: 100%;
+  }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  .hero-section {
+    text-align: center;
+    padding: 40px 15px;
+  }
+  .hero-section h1 {
+    font-size: 1.6rem;
+  }
+  .image-text {
+    font-size: 1.4rem;
+    text-align: center;
+    padding: 0 10px;
+  }
+  .contact-section {
+    padding: 20px;
+    gap: 15px;
+  }
+  .contact-form {
+    padding: 15px;
+  }
+  .contact-form button {
+    width: 100%; /* Full width on small screens */
+  }
+  .info-card {
+    padding: 15px;
+    font-size: 14px;
+  }
+  .info-card i {
+    font-size: 20px;
+  }
+}
+
+/* Small phones (≤480px) */
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 1.2rem;
+  }
+  .hero-section button {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+  .image-text {
+    font-size: 1.1rem;
+  }
+  .contact-section {
+    padding: 15px;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 14px;
+  }
 }

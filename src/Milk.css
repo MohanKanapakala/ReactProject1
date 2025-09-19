@@ -9,6 +9,19 @@
   padding: 40px 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.milk-head span{
+  background: linear-gradient(90deg, #000000, #0a1a4f, #0077ff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: inline-block;
+
+   font-size: 42px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    margin-top: 20px;
+    font-style: italic;
+
+}
 
 /* Grid container */
 .item {
@@ -115,13 +128,11 @@
 }
 
 .previous-button:hover, .next-button:hover {
-  background: linear-gradient(45deg, #a0522d, #800000);
   transform: scale(1.05);
 }
 
 .pagenation-buttons {
-  background-color: maroon !important;
-  color: white !important;
+  
 }
 
 .pagenation-buttons:hover {

@@ -1,15 +1,28 @@
-.cart-container {
+
+body, #root {
+background: linear-gradient(to bottom, 
+    #d6e6fa 0%, 
+    #e3d3f7 50%, 
+    #f5b6b6 100%
+  ) !important;   min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}.cart-container {
   display: flex;
   gap: 20px;
   align-items: flex-start;
   margin: 20px;
 }
-.cart-head{
-  color: ;
+.card-head{
+ background: linear-gradient(90deg, #000000, #5a0000, #ff0000);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: inline-block;
    font-size: 42px;
     font-weight: 700;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-    margin-top: 20px;
+    margin-top: 50px;
+    margin-bottom: 30px;
     font-style: italic;
 
 }
@@ -25,7 +38,8 @@
   border: 1px solid white;
   border-radius: 20px;
   padding: 15px;
-  background: linear-gradient(135deg, #000000, #0f2027, #2c5364);
+    background: linear-gradient(90deg, #000428, #004e92) !important;
+
   color: white;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   display: flex;
@@ -63,43 +77,157 @@
 }
 
 /* Section Boxes */
+/* General Styles */
 .summary-section {
-  background: radial-gradient(circle at center, #ffffff 0%, #d6e6fa 40%, #e3d3f7 70%, #f5b6b6 100% t);
-  border-radius: 12px;
-  padding: 15px 20px;
-  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #ffffff, #f9f9ff);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.summary-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 }
 
 .summary-section h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #1a237e;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 5px;
-}
-.summary-section:hover{
-/* transform: translateY(-2px); */
-border: 1px solid black;
-
-
-  box-shadow: 5px 5px 10px black;
+  font-size: 20px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
 }
 
+.summary-section input {
+  width: 80%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.summary-section input:focus {
+  border-color: #0077ff;
+  box-shadow: 0 0 6px rgba(0, 119, 255, 0.3);
+}
+
+/* Buttons */
+.button-disounts,
+.reset-btn,
+.coupon-discount,
+.payment,
+.completepurchase-button {
+  border-radius: 12px;
+  margin: 8px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  transition: all 0.25s ease;
+  min-width: 120px;
+}
+
+.button-disounts {
+  border: 1px solid #0077ff;
+  color: #0077ff;
+  background: white;
+}
+.button-disounts:hover {
+  background: #0077ff;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 119, 255, 0.3);
+}
+
+.reset-btn {
+  border: 1px solid #888;
+  background: #f5f5f5;
+}
+.reset-btn:hover {
+  background: #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.coupon-discount {
+  border: 2px solid #222;
+  background: white;
+  color: #222;
+}
+.coupon-discount:hover {
+  background: #1a237e;
+  color: white;
+  box-shadow: 0 4px 12px rgba(26, 35, 126, 0.4);
+}
+
+.payment {
+  border: 2px solid #0051ff;
+  background: #0051ffb6;
+  color: white;
+}
+.payment:hover {
+  background: #0051ff;
+  box-shadow: 0 4px 12px rgba(0, 81, 255, 0.4);
+}
+
+.completepurchase-button {
+  background: #28a745;
+  color: white;
+  border: none;
+  font-size: 16px;
+}
+.completepurchase-button:hover {
+  background: #218838;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+.completepurchase-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* QR Box */
+.qr-box {
+  margin-top: 15px;
+  padding: 15px;
+  background: #f0f8ff;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #0077ff2a;
+}
+.qrcode {
+  height: 200px;
+  width: 200px;
+  margin: 10px auto;
+  display: block;
+}
+
+/* Messages */
 .success-msg {
-  color: green;
+  color: #28a745;
   font-size: 14px;
   font-weight: bold;
+  margin-top: 10px;
 }
 .error-msg {
-  color: red;
+  color: #e63946;
   font-size: 14px;
   font-weight: bold;
+  margin-top: 10px;
 }
 .final-amount {
-  margin-top: 10px;
-  font-size: 20px;
-  color: maroon;
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #c62828;
 }
+
+
 
 /* Buttons */
 .button-disounts,
@@ -181,8 +309,12 @@ border: 1px solid black;
   justify-content: center;
 }
 .empty-text {
-  color: gold;
+  background: linear-gradient(90deg, #000000, #001f4d, #0077ff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: inline-block;
   font-size: 32px;
   font-weight: bold;
+  font-style: italic;
 }
 /* Quantity Buttons */ .quantity-controls { margin-top: 10px; } .dec-btn, .inc-btn { padding: 8px 12px; margin: 5px; border: none; border-radius: 50px; cursor: pointer; color: white; } .dec-btn { background-color: orange; } .dec-btn:hover{ background-color: lightsalmon; color: black; } .inc-btn { background-color: green; } .inc-btn:hover{ background-color: lightgreen; color: black; } .quantity { background-color: white; color: black; padding: 8px 20px; margin: 5px; border-radius: 5px; display: inline-block; } /* Remove Button */ .remove-btn { background-color: maroon; color: white; border: none; padding: 8px 15px; margin-top: 10px; border-radius: 5px; cursor: pointer; width: 250px; } .remove-btn:hover{ background-color: red; }

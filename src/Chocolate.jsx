@@ -52,10 +52,10 @@ function Chocolate() {
   ));
   return (
     <>
-      <div className="choco-container">
+      <div className="chocolate-container">
         <ToastContainer position="top-right" autoClose={2000}></ToastContainer>
-        <h1 style={{ color: "blue", fontWeight: "bolder", marginTop: "5px" }}>
-          Chocolate Items ...
+        <h1 className="choco-head">
+          🍫<span> Chocolates ...</span>
         </h1>
         <ul className="item mt-5">{chocoListItems}</ul>
         <div
@@ -71,7 +71,7 @@ function Chocolate() {
             disabled={currentPage === 1}
             className="previous-button"
           >
-            Prev
+            ⏪Prev
           </button>
 
           <div>{pagenationButtons}</div>
@@ -81,7 +81,7 @@ function Chocolate() {
             disabled={currentPage === totalPages}
             className="next-button"
           >
-            Next
+            Next⏩
           </button>
         </div>
       </div>

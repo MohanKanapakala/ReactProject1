@@ -9,6 +9,19 @@
   padding: 40px 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.bakery-head span{
+  background: linear-gradient(90deg, #000000, #444444, #ffd700);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: inline-block;
+
+   font-size: 42px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    margin-top: 20px;
+    font-style: italic;
+
+}
 
 /* Grid container */
 .item {
@@ -111,7 +124,6 @@
 }
 
 .previous-button, .next-button {
-  background: linear-gradient(135deg, #000000, #0f2027, #2c5364) !important;
   color: white;
 }
 
@@ -121,8 +133,8 @@
 }
 
 .pagenation-buttons {
-  background-color: maroon !important;
-  color: white !important;
+  
+  
 }
 
 .pagenation-buttons:hover {

@@ -10,7 +10,11 @@
 }
 
 .top {
-  color: #ffd700; /* golden heading */
+  background: linear-gradient(90deg, #ffd700, #ffcc33, #ffb400); /* golden gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.8rem;
+  font-weight: bold;
   margin: 30px;
   text-align: center;
 }
@@ -19,8 +23,8 @@
   background: #000000; /* black card */
   border-radius: 12px;
   padding: 16px 20px;
-  width: 600px; /* fixed width */
-  margin: 0 auto; /* center the card horizontally */
+  width: 600px; /* fixed width for desktop */
+  margin: 0 auto; /* center horizontally */
   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   margin-bottom: 10px;
@@ -66,7 +70,6 @@
   flex-direction: column;
 }
 
-
 .item-details h6 {
   color: #ccc;
   margin: 0;
@@ -83,6 +86,7 @@
   font-weight: bold;
   white-space: nowrap;
 }
+
 .order-header {
   display: flex;
   justify-content: space-between;
@@ -93,4 +97,67 @@
 .total-price {
   color: #ffd700;
   font-weight: bold;
+}
+
+/* ------------------- */
+/* ✅ Responsive Design */
+/* ------------------- */
+
+/* Tablet (≤992px) */
+@media (max-width: 992px) {
+  .order-card {
+    width: 80%; /* shrink card */
+    padding: 14px 18px;
+  }
+  .order-items li {
+    padding: 8px 10px;
+  }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  .orders-container {
+    padding: 15px;
+  }
+  .order-card {
+    width: 100%; /* full width */
+    border-radius: 10px;
+    padding: 12px 15px;
+  }
+  .order-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .order-items li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  .item-price {
+    align-self: flex-end;
+  }
+}
+
+/* Small phones (≤480px) */
+@media (max-width: 480px) {
+  .top {
+    font-size: 1.2rem;
+    margin: 20px;
+  }
+  .orderId {
+    font-size: 0.9rem;
+  }
+  .order-card {
+    padding: 10px 12px;
+  }
+  .item-details h6 {
+    font-size: 0.9rem;
+  }
+  .item-details p {
+    font-size: 12px;
+  }
+  .item-price {
+    font-size: 0.9rem;
+  }
 }

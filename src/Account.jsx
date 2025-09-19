@@ -54,7 +54,7 @@ function Account() {
   return (
     <div className="login-container">
       <form onSubmit={loginSuccess}>
-        <h2>Login</h2>
+        <h2>Sign In</h2>
 
         <label>Username👤</label>
         <input type="text" placeholder="Enter Username" ref={userNameRef} />

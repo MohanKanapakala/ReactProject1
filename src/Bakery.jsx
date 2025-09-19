@@ -60,10 +60,8 @@ function Bakery() {
     <>
       <div className="bakery-container">
         <ToastContainer position="top-right" autoClose={2000}></ToastContainer>
-        <h1
-          style={{ color: "blue", fontWeight: "bolder", marginTop: "10px" }}
-        >
-          Bakery Items...
+        <h1 className="bakery-head">
+          🍔<span> Bakery Items ...</span>
         </h1>
         {/* Use the prepared list */}
         <ul className="item mt-5">{bakeryListItems}</ul>
@@ -82,7 +80,7 @@ function Bakery() {
             style={{ margin: "5px" }}
             className="previous-button"
           >
-            Prev
+            ⏪Prev
           </button>
 
           <div>{paginationButtons}</div>
@@ -92,7 +90,7 @@ function Bakery() {
             disabled={currentPage === totalPages}
             className="next-button"
           >
-            Next
+            Next⏩
           </button>
         </div>
       </div>

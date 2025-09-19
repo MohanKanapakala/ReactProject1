@@ -89,10 +89,16 @@ function Home() {
         </div>
       </div>
 
+      {/* chef */}
+      {/* <div>
+        <img src="/images/chef1.png" height="300px" width="400px" />
+      </div> */}
       {/* autoScroll items */}
       <br />
       <div className="food-carousel">
-        <h2 className="food-sec">Visit Our Best Food Items</h2>
+        <h2 className="food-sec">
+          <span> Visit Our Best Food Items </span>👀
+        </h2>
 
         <div className="marquee-background">
           <marquee behavior="scroll" direction="right" scrollamount="10">
@@ -218,9 +224,6 @@ function Home() {
 
       {/* marqueee */}
 
-
-      
-
       {/* ===== Second Categories Carousel ===== */}
       <div className="carousel-container">
         <h2 className="carousel-title">🍴 Foods Categories</h2>
@@ -299,7 +302,8 @@ function Home() {
 
       <div className="container-fluid text-center">
         <h2 className="get-heading">Get In Touch</h2>
-        <h3 className="fw-bold text-success">Visit FoodiePlace Today</h3>
+        <br />
+        <h3 className="sub-heading">Visit FoodiePlace Today</h3>
         <p className=" mb-5 text-dark">
           We'd love to welcome you to our restaurant. Reach out for reservations
           or any inquiries
@@ -359,8 +363,8 @@ function Home() {
 
         <div class="reviews-container">
           <div class="review-card">
-            <img src="/images/jemimah.jpg" alt="Jemimah Rodrigues" />
-            <strong>Jemimah Rodrigues</strong>
+            <img src="/images/lokesh.jpg" alt="Jemimah Rodrigues" />
+            <strong>Lokesh Surisetti</strong>
             <p class="stars">⭐⭐⭐⭐⭐</p>
             <p>
               FoodiePlace is my go-to site for discovering amazing restaurants

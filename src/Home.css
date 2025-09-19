@@ -150,10 +150,16 @@ html, body {
   color: green;
   transform: scale(1.05);
 }
-.food-sec{
-  color: blue;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-  font-weight: 700;
+.food-sec span{
+ background: linear-gradient(90deg, #000000, #001f4d, #0077ff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: inline-block;
+   font-size: 42px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    margin-top: 20px;
+    font-style: italic;
   padding: 20px 20px;
 }
 
@@ -168,11 +174,16 @@ html, body {
 
 .carousel-title {
   text-align: center;
-  font-size: 42px;
-  margin-bottom: 35px;
-  font-weight: 700;
-  color: blue;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+ background: linear-gradient(90deg, #000000, #001f4d, #0077ff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: inline-block;
+   font-size: 42px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    margin-top: 20px;
+    font-style: italic;
+  padding: 20px 20px;
 }
 
 .category-card {
@@ -250,12 +261,16 @@ text-decoration: none;
 
 /* ===== Our Achievements ===== */
 .heading {
-  color: blue;
-  margin-bottom: 35px;
-  text-align: center;
-  font-size: 42px;
-  font-weight: 700;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  background: linear-gradient(90deg, #000000, #001f4d, #0077ff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: inline-block;
+   font-size: 42px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    margin-top: 20px;
+    font-style: italic;
+  padding: 20px 20px;
 }
 
 .rowStyle {
@@ -322,10 +337,25 @@ text-decoration: none;
 
 /* ===== Get in Touch Section ===== */
 .get-heading{
-    color: #ff9800;
-    font-size: 42px;
+   background: linear-gradient(90deg, #000000, #001f4d, #0077ff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: inline-block;
+   font-size: 42px;
     font-weight: 700;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    margin-top: 20px;
+    font-style: italic;
+  padding: 20px 20px;
+}
+.sub-heading{
+  color: rgb(255, 145, 0);
+   font-size: 32px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+   
+    font-style: italic;
+  padding: 5px 20px;
 }
 .container-fluid.text-center {
   /* background: linear-gradient(135deg, #ff9800, #ff5722); */
@@ -379,11 +409,16 @@ text-decoration: none;
  ) !important;
 }
 .rev-heading{
-  color: #ff9800;
-  font-size: 42px;
+ background: linear-gradient(90deg, #000000, #001f4d, #0077ff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: inline-block;
+   font-size: 42px;
     font-weight: 700;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-    margin-bottom: 30px;
+    margin-top: 20px;
+    font-style: italic;
+  padding: 20px 20px;
 }
 .reviews-container {
   display: flex;
@@ -401,7 +436,8 @@ text-decoration: none;
   #e3d3f7 70%, 
   #f5b6b6 100% 
 ); */
-background: linear-gradient(135deg, #000000, #0f2027, #2c5364);
+  background: linear-gradient(90deg, #000428, #004e92) !important;
+
   padding: 20px;
   width: 250px;
   border-radius: 15px;
@@ -446,7 +482,9 @@ background: linear-gradient(135deg, #000000, #0f2027, #2c5364);
 /* footer */ 
 .row-section{
   /* background: linear-gradient(135deg, #000000, #001a00, #003300); */
-    background: linear-gradient(135deg, #000000, #1a1a1a, #2b2b2b);
+    /* background: linear-gradient(135deg, #000000, #1a1a1a, #2b2b2b); */
+      background: linear-gradient(90deg, #000428, #004e92) !important;
+
   border: 2px solid white;
    padding: 30px;
    

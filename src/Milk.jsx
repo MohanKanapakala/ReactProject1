@@ -53,8 +53,8 @@ function Milk() {
     <>
       <div className="milk-container">
         <ToastContainer position="top-right" autoClose={2000}></ToastContainer>
-        <h1 style={{ color: "blue", fontWeight: "bolder", marginTop: "5px" }}>
-          Milk Items ...
+        <h1 className="milk-head">
+          🍹<span> Milk Items ...</span>
         </h1>
         <ul className="item mt-5">{milkListItems}</ul>
         <div
@@ -70,7 +70,7 @@ function Milk() {
             disabled={currentPage === 1}
             className="previous-button"
           >
-            Prev
+            ⏪Prev
           </button>
 
           <div>{pagenationButtons}</div>
@@ -80,7 +80,7 @@ function Milk() {
             disabled={currentPage === totalPages}
             className="next-button"
           >
-            Next
+            Next⏩
           </button>
         </div>
       </div>

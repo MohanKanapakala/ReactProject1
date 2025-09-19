@@ -103,7 +103,7 @@ function Aboutus() {
         <div className="container-fluid">
           <div className="meet-our-grid">
             <div className="image">
-              <img src="/images/ingredients.jpg" alt="Chef Maria" />
+              <img src="/images/ingre.png" alt="Chef Maria" />
             </div>
             <div className="text">
               <h2>Chef Maria Rodriguez</h2>

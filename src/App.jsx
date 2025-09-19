@@ -1,80 +1,72 @@
 import React from "react";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { MdAccountCircle } from "react-icons/md";
+import { logoutUser } from "./store";
+
 import Home from "./Home";
 import Veg from "./Veg";
 import Nonveg from "./Nonveg";
 import Milk from "./Milk";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Chocolate from "./Chocolate";
-import "./App.css";
+import Bakery from "./Bakery";
 import Cart from "./Cart";
+import Orders from "./Orders";
 import Aboutus from "./Aboutus";
 import Contactus from "./Contactus";
-import NotFound from "./NotFound";
-import { useSelector } from "react-redux";
-import { MdAccountCircle } from "react-icons/md";
-import Orders from "./Orders";
 import Account from "./Account";
-import Bakery from "./Bakery";
 import Signup from "./Signup";
+import NotFound from "./NotFound";
+
+import "./App.css";
 
 function App() {
-  let cartItems = useSelector((globalState) => globalState.cart);
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart);
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
-  let isAuthenticated = useSelector(
-    (globalState) => globalState.authentication.isAuthenticated
-  );
-  let user = useSelector(
-    (globalState) => globalState.authentication.currentUser
+  const { isAuthenticated, currentUser } = useSelector(
+    (state) => state.authentication
   );
 
   return (
-    <>
-      <BrowserRouter>
-        {/* ✅ Combined Navbar */}
-        <div className="navbar">
-          {/* Row 1: Logo + Search + Actions */}
+    <BrowserRouter>
+      {/* ✅ Navbar */}
+      <div className="navbar">
+        <div className="navbar-wrapper">
+          {/* === Row 1 === */}
           <div className="navbar-top">
+            {/* Left: Logo */}
             <div className="logo">
               <h1>🍴FoodiePlace</h1>
             </div>
 
+            {/* Middle: Search */}
             <div className="search-bar">
               <input type="text" placeholder="Search for items..." />
             </div>
 
+            {/* Right: Auth Links */}
             <div className="nav-actions">
-              <Link to="/cart" className=" nav-links">
-                🛒 Cart (<span className="cart-count">{cartCount}</span>)
-              </Link>
-              <Link to="/orders" className=" nav-links">
-                📦 Orders
-              </Link>
-
               {isAuthenticated ? (
                 <>
                   <span className="nav-links">
-                    👋 Welcome, {user?.userName}
+                    👋 Welcome, {currentUser?.userName}
                   </span>
                   <button
                     onClick={() => dispatch(logoutUser())}
-                    className="nav-links"
-                    style={{
-                      background: "transparent",
-                      border: "none",
-                      cursor: "pointer",
-                    }}
+                    className="nav-links logout-btn"
                   >
-                    🚪 Logout
+                    Logout➡️
                   </button>
                 </>
               ) : (
                 <>
                   <Link to="/signup" className="nav-links">
-                    SignUp
+                    📝SignUp
                   </Link>
                   <Link to="/signin" className="nav-links">
-                    <MdAccountCircle size={28} style={{ marginRight: "5px" }} />
+                    <MdAccountCircle size={22} style={{ marginRight: "4px" }} />
                     SignIn
                   </Link>
                 </>
@@ -82,53 +74,57 @@ function App() {
             </div>
           </div>
 
-          {/* Row 2: Category Links */}
+          {/* === Row 2 === */}
           <div className="navbar-bottom">
-            <Link to="/" className=" nav-links">
-              🏠Home
+            <Link to="/" className="nav-links">
+              🏠 Home
             </Link>
-            <Link to="/veg" className=" nav-links">
-              🥦VegItems
+
+            {/* Dropdown Menu */}
+            <div className="dropdown">
+              <button className="dropbtn">&#9776; Menu 🍽️</button>
+              <div className="dropdown-content">
+                <Link to="/veg">🥦 VegItems</Link>
+                <Link to="/nonveg">🍗 Non-Veg</Link>
+                <Link to="/milk">🥛 MilkItems</Link>
+                <Link to="/chocolate">🍫 Chocolates</Link>
+                <Link to="/bakery">🍔 BakeryItems</Link>
+              </div>
+            </div>
+
+            <Link to="/cart" className="nav-links">
+              🛒 Cart (<span className="cart-count">{cartCount}</span>)
             </Link>
-            <Link to="/nonveg" className=" nav-links">
-              🍗Non-Veg
-            </Link>
-            <Link to="/bakery" className=" nav-links">
-              🍔BakeryItems
-            </Link>
-            <Link to="/milk" className=" nav-links">
-              🥛MilkItems
-            </Link>
-            <Link to="/chocolate" className=" nav-links">
-              🍫Chocolate
+            <Link to="/orders" className="nav-links">
+              📦 Orders
             </Link>
             <Link to="/aboutus" className="nav-links">
-              ℹ️AboutUs
+              ℹ️ AboutUs
             </Link>
-            <Link to="/contactus" className=" nav-links">
-              📞ContactUs
+            <Link to="/contactus" className="nav-links">
+              📞 ContactUs
             </Link>
           </div>
         </div>
+      </div>
 
-        {/* ✅ Routes */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/veg" element={<Veg />} />
-          <Route path="/nonveg" element={<Nonveg />} />
-          <Route path="/bakery" element={<Bakery />} />
-          <Route path="/milk" element={<Milk />} />
-          <Route path="/chocolate" element={<Chocolate />} />
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/aboutus" element={<Aboutus />} />
-          <Route path="/contactus" element={<Contactus />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/signin" element={<Account />} />
-          <Route path="*" element={<NotFound />}></Route>
-        </Routes>
-      </BrowserRouter>
-    </>
+      {/* ✅ Routes */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/veg" element={<Veg />} />
+        <Route path="/nonveg" element={<Nonveg />} />
+        <Route path="/milk" element={<Milk />} />
+        <Route path="/chocolate" element={<Chocolate />} />
+        <Route path="/bakery" element={<Bakery />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/aboutus" element={<Aboutus />} />
+        <Route path="/contactus" element={<Contactus />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/signin" element={<Account />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

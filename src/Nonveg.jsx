@@ -53,9 +53,9 @@ function Nonveg() {
     <>
       <div className="nonveg-container">
         <ToastContainer position="top-right" autoClose={2000}></ToastContainer>
-        <h1 style={{ color: "blue", fontWeight: "bold", marginTop: "5px" }}>
+        <h1 className="nonveg-head">
           {" "}
-          Nonveg Items ...
+          🍗<span>Non-veg Items ...</span>
         </h1>
         <ol className="item mt-5">{nonVegList}</ol>
         <div
@@ -71,7 +71,7 @@ function Nonveg() {
             disabled={currentPage === 1}
             className="previous-button"
           >
-            Prev
+            ⏪ Prev
           </button>
 
           <div>{pagenationButtons}</div>
@@ -81,7 +81,7 @@ function Nonveg() {
             disabled={currentPage === totalPages}
             className="next-button"
           >
-            Next
+            Next⏩
           </button>
         </div>
       </div>
