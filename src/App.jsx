@@ -19,6 +19,7 @@ import Signup from "./Signup";
 import NotFound from "./NotFound";
 
 import "./App.css";
+import VoiceSearch from "./VoiceSearch";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,11 @@ function App() {
   const { isAuthenticated, currentUser } = useSelector(
     (state) => state.authentication
   );
+
+
+ const showVegItems = () => alert("Showing Veg Items 🌱");
+ const addToCart = (item) => alert(`Added ${item} to cart 🍕`);
+
 
   return (
     <BrowserRouter>
@@ -107,7 +113,8 @@ function App() {
           </div>
         </div>
       </div>
-
+      {/* return{" "} */}
+      {/* <VoiceSearch showVegItems={showVegItems} addToCart={addToCart} />; */}
       {/* ✅ Routes */}
       <Routes>
         <Route path="/" element={<Home />} />

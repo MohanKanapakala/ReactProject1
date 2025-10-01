@@ -93,7 +93,25 @@ display: inline-block;
   transform: translateY(-3px);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 }
+/* When cart is empty, center the empty-cart absolutely */
+.cart-container.empty {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh; /* vertical centering */
+  margin: 0;
+  gap: 0;
+}
 
+/* Make sure the empty-cart takes full width in this mode */
+.cart-container.empty .cart-items {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
 .summary-section h2 {
   font-size: 20px;
   font-weight: 700;

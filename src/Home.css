@@ -215,6 +215,89 @@ display: inline-block;
   display: block;
 }
 
+/* ===== Carousel Section ===== */
+/* ===== Carousel Section Full Screen ===== */
+.carousel-container1 {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.carousel-title1 span {
+  text-align: center;
+  background: linear-gradient(90deg, #000000, #001f4d, #0077ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-size: 42px;
+  font-weight: 700;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 20px 0;
+  font-style: italic;
+  padding: 20px;
+}
+
+/* Category Card */
+.category-card1 {
+  text-align: center;
+  width: 100vw; /* full screen width */
+}
+
+/* Category Box */
+.category-box1 {
+  width: 100%;
+  border-radius: 0;      /* remove rounded corners for full-screen effect */
+  padding: 0;
+  box-shadow: none;
+  transition: transform 0.4s ease-in-out;
+}
+
+.category-box1:hover {
+  transform: scale(1.02);
+}
+
+/* Category Image */
+.category-image1 {
+  width: 100vw;       /* full viewport width */
+  height: 80vh;       /* almost full viewport height */
+  object-fit: cover;  /* crop and cover */
+  border-radius: 0;
+  display: block;
+  margin: 0;
+}
+/* ===== Responsive Styles ===== */
+@media (max-width: 1024px) {
+  .carousel-title1 span {
+    font-size: 32px;
+    padding: 15px;
+  }
+  .category-image1 {
+    height: 65vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-title1 span {
+    font-size: 28px;
+    padding: 12px;
+  }
+  .category-image1 {
+    height: 55vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-title1 span {
+    font-size: 22px;
+    padding: 10px;
+  }
+  .category-image1 {
+    height: 40vh;
+  }
+}
+
+
 .marquee-background {
    background: linear-gradient(135deg, #000000, #0f2027, #2c5364);
   padding: 15px 0;   /* space above and below items */
@@ -436,9 +519,11 @@ display: inline-block;
   #e3d3f7 70%, 
   #f5b6b6 100% 
 ); */
-  background: linear-gradient(90deg, #000428, #004e92) !important;
-
-  padding: 20px;
+ /* Soft pastel blue to purple */
+/* background: linear-gradient(135deg, #fbc2eb, #a6c1ee); */
+background: linear-gradient(135deg, #000000, #141E30, #243B55);
+/* background: linear-gradient(135deg, #000000, #0f2027, #203a43); */
+ padding: 20px;
   width: 250px;
   border-radius: 15px;
   border: 1px solid black;

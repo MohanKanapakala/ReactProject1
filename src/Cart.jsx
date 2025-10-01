@@ -19,9 +19,16 @@ import {
 import emailjs from "@emailjs/browser";
 import { toast, ToastContainer } from "react-toastify";
 import QRCode from "react-qr-code";
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
   let dispatch = useDispatch();
+  let navigate = useNavigate();
+
+  const { isAuthenticated, currentUser } = useSelector(
+      (state) => state.authentication
+    );
+  
 
   // SweetAlert notification
   let notification = (orderId) => {
@@ -172,7 +179,9 @@ function Cart() {
     <>
       <ToastContainer position="top-right" autoClose={2000} />
       <h2 className="card-head">🛒 Your Cart</h2>
-      <div className="cart-container">
+      <div
+        className={`cart-container ${cartItems.length === 0 ? "empty" : ""}`}
+      >
         {/* Left: Cart Items */}
         <div className="cart-items">
           {cartItems.length === 0 ? (
@@ -192,194 +201,217 @@ function Cart() {
         </div>
 
         {/* Right: Summary */}
-        <div className="cart-summary">
-          {/* Price Details */}
-          <div className="summary-section">
-            <h1>
-              💰 <span>Cart Summary </span>
-            </h1>
-            <h5 style={{ margin: "20px" }}>
-              Actual Amount: ₹{totalAmount.toFixed(2)}
-            </h5>
-            {discountApply && (
-              <>
-                <h5 style={{ marginBottom: "30px" }}>
-                  🎯Button Discount({buttonDiscount}%): ₹{discountAmount.toFixed(2)}
-                </h5>
-                <p className="success-msg" style={{ marginBottom: "30px" }}>
-                  🎉 Discount Applied Successfully
-                </p>
-              </>
-            )}
-            {isApplied &&
-              (couponResult.isValid ? (
-                cartItems.length === 0 ? (
-                  alert("😞 Please add at least one item")
+        {cartItems.length > 0 && (
+          <div className="cart-summary">
+            {/* Price Details */}
+            <div className="summary-section">
+              <h1>
+                💰 <span>Cart Summary </span>
+              </h1>
+              <h5 style={{ margin: "20px" }}>
+                Actual Amount: ₹{totalAmount.toFixed(2)}
+              </h5>
+              {discountApply && (
+                <>
+                  <h5 style={{ marginBottom: "30px" }}>
+                    🎯Button Discount({buttonDiscount}%): ₹
+                    {discountAmount.toFixed(2)}
+                  </h5>
+                  <p className="success-msg" style={{ marginBottom: "30px" }}>
+                    🎉 Discount Applied Successfully
+                  </p>
+                </>
+              )}
+              {isApplied &&
+                (couponResult.isValid ? (
+                  cartItems.length === 0 ? (
+                    alert("😞 Please add at least one item")
+                  ) : (
+                    <>
+                      <h5 style={{ marginBottom: "30px" }}>
+                        🎟️ Coupon Discount: ₹{couponResult.discountAmount}
+                      </h5>
+                      <p
+                        className="success-msg"
+                        style={{ marginBottom: "30px" }}
+                      >
+                        🎉 Coupon Applied Successfully
+                      </p>
+                    </>
+                  )
                 ) : (
-                  <>
-                    <h5 style={{ marginBottom: "30px" }}>
-                      🎟️ Coupon Discount: ₹{couponResult.discountAmount}
-                    </h5>
-                    <p className="success-msg" style={{ marginBottom: "30px" }}>
-                      🎉 Coupon Applied Successfully
-                    </p>
-                  </>
-                )
-              ) : (
-                <p className="error-msg" style={{ marginBottom: "30px" }}>
-                  ❌ Invalid coupon code!
-                </p>
-              ))}
+                  <p className="error-msg" style={{ marginBottom: "30px" }}>
+                    ❌ Invalid coupon code!
+                  </p>
+                ))}
 
-            <h3 className="final-amount" style={{ marginBottom: "30px" }}>
-              💰 Final Amount: <b> ₹{netAmount.toFixed(2)}</b>
-            </h3>
+              <h3 className="final-amount" style={{ marginBottom: "30px" }}>
+                💰 Final Amount: <b> ₹{netAmount.toFixed(2)}</b>
+              </h3>
+            </div>
+
+            {/* Button Discounts */}
+            <div className="summary-section">
+              <h2>🎯 Button Discounts</h2>
+              <button
+                onClick={() => {
+                  if (cartItems.length === 0) {
+                    alert("😞 Please add at least one item");
+                    return; // stop execution
+                  }
+                  setButtonDiscount(5);
+                  setDiscountApply(true);
+                  confetti({
+                    particleCount: 600,
+                    spread: 90,
+                    origin: { y: 0.6 },
+                  });
+                }}
+                className="button-disounts"
+              >
+                5% Discount
+              </button>
+              <button
+                onClick={() => {
+                  if (cartItems.length === 0) {
+                    alert("😞 Please add at least one item");
+                    return; // stop execution
+                  }
+                  setButtonDiscount(10);
+                  setDiscountApply(true);
+                  confetti({
+                    particleCount: 600,
+                    spread: 180,
+                    origin: { y: 0.6 },
+                  });
+                }}
+                className="button-disounts"
+              >
+                10% Discount
+              </button>
+              <button
+                onClick={() => {
+                  if (cartItems.length === 0) {
+                    alert("😞 Please add at least one item");
+                    return; // stop execution
+                  }
+                  setButtonDiscount(15);
+                  setDiscountApply(true);
+                  confetti({
+                    particleCount: 1000,
+                    spread: 360,
+                    origin: { y: 0.6 },
+                  });
+                }}
+                className="button-disounts"
+              >
+                15% Discount
+              </button>
+              <button
+                onClick={() => {
+                  setButtonDiscount(0);
+                  setDiscountApply(false);
+                }}
+                className="reset-btn"
+              >
+                Reset
+              </button>
+            </div>
+
+            {/* Coupon */}
+            <div className="summary-section">
+              <h2>🎟️ Apply Coupon</h2>
+              <input
+                type="text"
+                placeholder="Enter coupon code"
+                value={couponcode}
+                onChange={(e) => setCouponcode(e.target.value)}
+              />
+              <button onClick={handleApplyCoupon} className="coupon-discount">
+                Apply Coupon
+              </button>
+            </div>
+
+            {/* Email */}
+            <div className="summary-section">
+              <h2>📧 Email</h2>
+              <input
+                type="email"
+                value={customerEmail}
+                placeholder="* enter your email"
+                onChange={(e) => setCustomerEmail(e.target.value)}
+              />
+            </div>
+
+            {/* Payment */}
+            <div className="summary-section">
+              <h2>💳 Payment</h2>
+              <button
+                onClick={() => setPaymentMethod("qr")}
+                className="payment"
+              >
+                QR Code
+              </button>
+              <button
+                onClick={() => setPaymentMethod("card")}
+                className="payment"
+              >
+                Card
+              </button>
+
+              {paymentMethod === "qr" && (
+                <div className="qr-box">
+                  <h4>Scan UPI QR to pay Rs.{netAmount.toFixed(2)}</h4>
+                  <QRCode
+                    value={`upi://pay?pa=6305927818@ybl&pn=MohanStore&am=${netAmount}&cu=INR`}
+                    className="qrcode"
+                  />
+                  <p>UPI ID: 6305927818@ybl</p>
+                </div>
+              )}
+              {paymentMethod === "card" && (
+                <div>
+                  <p>
+                    Sorry😞..<br></br>Credit/Debit card payment coming soon..!!
+                    Please pay with QR Code
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Final Purchase */}
+            <div className="summary-section">
+              <button
+                onClick={() => {
+                  if (!currentUser) {
+                    // user not signed in
+                    Swal.fire({
+                      icon: "warning",
+                      title: "Please sign in first",
+                      text: "You need to login/signup before completing purchase",
+                      confirmButtonText: "Go to Signup",
+                    }).then(() => {
+                      navigate("/signup"); // navigate to signup page
+                    });
+                    return;
+                  }
+
+                  if (!customerEmail) {
+                    alert("Please enter your email address");
+                    return;
+                  }
+
+                  handleCompletePurchase();
+                  handleCheckOut();
+                }}
+                disabled={cartItems.length === 0}
+                className="completepurchase-button"
+              >
+                ✅ Complete Purchase
+              </button>
+            </div>
           </div>
-
-          {/* Button Discounts */}
-          <div className="summary-section">
-            <h2>🎯 Button Discounts</h2>
-            <button
-              onClick={() => {
-                if (cartItems.length === 0) {
-                  alert("😞 Please add at least one item");
-                  return; // stop execution
-                }
-                setButtonDiscount(5);
-                setDiscountApply(true);
-                confetti({
-                  particleCount: 600,
-                  spread: 90,
-                  origin: { y: 0.6 },
-                });
-              }}
-              className="button-disounts"
-            >
-              5% Discount
-            </button>
-            <button
-              onClick={() => {
-                if (cartItems.length === 0) {
-                  alert("😞 Please add at least one item");
-                  return; // stop execution
-                }
-                setButtonDiscount(10);
-                setDiscountApply(true);
-                confetti({
-                  particleCount: 600,
-                  spread: 180,
-                  origin: { y: 0.6 },
-                });
-              }}
-              className="button-disounts"
-            >
-              10% Discount
-            </button>
-            <button
-              onClick={() => {
-                if (cartItems.length === 0) {
-                  alert("😞 Please add at least one item");
-                  return; // stop execution
-                }
-                setButtonDiscount(15);
-                setDiscountApply(true);
-                confetti({
-                  particleCount: 1000,
-                  spread: 360,
-                  origin: { y: 0.6 },
-                });
-              }}
-              className="button-disounts"
-            >
-              15% Discount
-            </button>
-            <button
-              onClick={() => {
-                setButtonDiscount(0);
-                setDiscountApply(false);
-              }}
-              className="reset-btn"
-            >
-              Reset
-            </button>
-          </div>
-
-          {/* Coupon */}
-          <div className="summary-section">
-            <h2>🎟️ Apply Coupon</h2>
-            <input
-              type="text"
-              placeholder="Enter coupon code"
-              value={couponcode}
-              onChange={(e) => setCouponcode(e.target.value)}
-            />
-            <button onClick={handleApplyCoupon} className="coupon-discount">
-              Apply Coupon
-            </button>
-          </div>
-
-          {/* Email */}
-          <div className="summary-section">
-            <h2>📧 Email</h2>
-            <input
-              type="email"
-              value={customerEmail}
-              placeholder="* enter your email"
-              onChange={(e) => setCustomerEmail(e.target.value)}
-            />
-          </div>
-
-          {/* Payment */}
-          <div className="summary-section">
-            <h2>💳 Payment</h2>
-            <button onClick={() => setPaymentMethod("qr")} className="payment">
-              QR Code
-            </button>
-            <button
-              onClick={() => setPaymentMethod("card")}
-              className="payment"
-            >
-              Card
-            </button>
-
-            {paymentMethod === "qr" && (
-              <div className="qr-box">
-                <h4>Scan UPI QR to pay Rs.{netAmount.toFixed(2)}</h4>
-                <QRCode
-                  value={`upi://pay?pa=6305927818@ybl&pn=MohanStore&am=${netAmount}&cu=INR`}
-                  className="qrcode"
-                />
-                <p>UPI ID: 6305927818@ybl</p>
-              </div>
-            )}
-            {paymentMethod === "card" && (
-              <div>
-                <p>
-                  Sorry😞..<br></br>Credit/Debit card payment coming soon..!!
-                  Please pay with QR Code
-                </p>
-              </div>
-            )}
-          </div>
-
-          {/* Final Purchase */}
-          <div className="summary-section">
-            <button
-              onClick={() => {
-                if (!customerEmail) {
-                  alert("Please enter your email address");
-                  return;
-                }
-                handleCompletePurchase();
-                handleCheckOut();
-              }}
-              disabled={cartItems.length === 0}
-              className="completepurchase-button"
-            >
-              ✅ Complete Purchase
-            </button>
-          </div>
-        </div>
+        )}
       </div>
     </>
   );

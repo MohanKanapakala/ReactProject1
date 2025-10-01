@@ -1,30 +1,27 @@
-
-  import "slick-carousel/slick/slick.css";
-  import "slick-carousel/slick/slick-theme.css";
-  import React, { useEffect, useRef } from "react";
-  import Slider from "react-slick";
-  import { Link } from "react-router-dom";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import React from "react";
+import Slider from "react-slick";
+import { Link } from "react-router-dom";
 import "./Home.css";
-  import "bootstrap-icons/font/bootstrap-icons.css";
-
+import "bootstrap-icons/font/bootstrap-icons.css";
+import { motion } from "framer-motion";
 
 function Home() {
-  const scrollRef = useRef(null);
-
-  // ✅ First carousel (food items)
+  // ✅ First carousel (food items slider)
   const settings1 = {
-    dots: false, // hide navigation dots
-    infinite: true, // loop endlessly
-    speed: 2000, // transition speed
-    slidesToShow: 6, // number of items shown at once
+    dots: false,
+    infinite: true,
+    speed: 2000,
+    slidesToShow: 6,
     slidesToScroll: 1,
-    autoplay: true, // auto scroll
-    autoplaySpeed: 2500, // delay between auto scrolls
-    pauseOnHover: true, // stop on hover
-    arrows: true, // prev/next arrows
+    autoplay: true,
+    autoplaySpeed: 2500,
+    pauseOnHover: true,
+    arrows: true,
   };
 
-  // ✅ Second carousel (categories)
+  // ✅ Categories carousel
   const settings2 = {
     dots: true,
     infinite: true,
@@ -42,6 +39,18 @@ function Home() {
     ],
   };
 
+  // ✅ Fade carousel for promotions
+  const fadeSettings = {
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 2500,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+  };
+
   // ✅ Categories
   const categories = [
     { id: 1, name: "Veg", img: "/images/veg.jpg", link: "/veg" },
@@ -54,6 +63,12 @@ function Home() {
       link: "/chocolate",
     },
     { id: 5, name: "Bakery Items", img: "/images/bakery.jpg", link: "/bakery" },
+  ];
+
+  const fadeItems = [
+    { id: 1, img: "/images/cc1.jpg", link: "/bakery" },
+    { id: 2, img: "/images/c2.jpg", link: "/nonveg" },
+    { id: 3, img: "/images/c3.jpg", link: "/bakery" },
   ];
 
   return (
@@ -70,7 +85,7 @@ function Home() {
         />
         <div className="video-overlay">
           <h1>
-            Welocome To <span>FoodiePlace</span>
+            Welcome To <span>FoodiePlace</span>
           </h1>
           <h1>
             Exquisite <span>Flavors</span>
@@ -89,11 +104,34 @@ function Home() {
         </div>
       </div>
 
-      {/* chef */}
-      {/* <div>
-        <img src="/images/chef1.png" height="300px" width="400px" />
-      </div> */}
-      {/* autoScroll items */}
+      {/* ===== Fade Carousel Section (New) ===== */}
+      <div className="carousel-container1">
+        <h2 className="carousel-title1">
+          😋 <span>Treat Yourself Today</span>
+        </h2>
+        <Slider {...fadeSettings}>
+          {fadeItems.map((item) => (
+            <div key={item.id} className="category-card1">
+              <Link to={item.link}>
+                <motion.div
+                  className="category-box1"
+                  initial={{ scale: 0.95, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <img
+                    src={item.img}
+                    alt={`fade-${item.id}`}
+                    className="category-image1"
+                  />
+                </motion.div>
+              </Link>
+            </div>
+          ))}
+        </Slider>
+      </div>
+
+      {/* ===== Marquee Section (unchanged) ===== */}
       <br />
       <div className="food-carousel">
         <h2 className="food-sec">
@@ -103,6 +141,7 @@ function Home() {
         <div className="marquee-background">
           <marquee behavior="scroll" direction="right" scrollamount="10">
             <div className="marquee-items">
+              {/* All your food-item divs */}
               <div className="food-item">
                 <a href="/nonveg">
                   <img
@@ -112,105 +151,90 @@ function Home() {
                 </a>
                 <strong>Chicken Biryani</strong>
               </div>
-
               <div className="food-item">
                 <a href="/nonveg">
                   <img src="/images/tandoori.webp" alt="Tandoori Chicken" />
                 </a>
                 <strong>Tandoori Chicken</strong>
               </div>
-
               <div className="food-item">
                 <a href="/nonveg">
                   <img src="/images/mutton-curry.png" alt="Mutton Curry" />
                 </a>
                 <strong>Mutton Curry</strong>
               </div>
-
               <div className="food-item">
                 <a href="/veg">
                   <img src="/images/paneer-butter.png" alt="Paneer Butter" />
                 </a>
                 <strong>Paneer Butter</strong>
               </div>
-
               <div className="food-item">
                 <a href="/veg">
                   <img src="/images/masala-dosa.png" alt="Masala Dosa" />
                 </a>
                 <strong>Masala Dosa</strong>
               </div>
-
               <div className="food-item">
                 <a href="/veg">
                   <img src="/images/veg munchuria.png" alt="Veg Munchuria" />
                 </a>
                 <strong>Veg Munchuria</strong>
               </div>
-
               <div className="food-item">
                 <a href="/bakery">
                   <img src="/images/pizza.png" alt="Pizza" />
                 </a>
                 <strong>Pizza</strong>
               </div>
-
               <div className="food-item">
                 <a href="/bakery">
                   <img src="/images/burger.png" alt="Burger" />
                 </a>
                 <strong>Burger</strong>
               </div>
-
               <div className="food-item">
                 <a href="/bakery">
                   <img src="/images/cake.png" alt="Cake" />
                 </a>
                 <strong>Cake</strong>
               </div>
-
               <div className="food-item">
                 <a href="/bakery">
                   <img src="/images/chicken-roll.webp" alt="Chicken Roll" />
                 </a>
                 <strong>Chicken Roll</strong>
               </div>
-
               <div className="food-item">
                 <a href="/milk">
                   <img src="/images/milk-6.png" alt="Vanilla" />
                 </a>
                 <strong>Vanilla</strong>
               </div>
-
               <div className="food-item">
                 <a href="/milk">
                   <img src="/images/milk-7.png" alt="Oreo" />
                 </a>
                 <strong>Oreo</strong>
               </div>
-
               <div className="food-item">
                 <a href="/milk">
                   <img src="/images/lassi.png" alt="Lassi" />
                 </a>
                 <strong>Lassi</strong>
               </div>
-
               <div className="food-item">
                 <a href="/bakery">
                   <img src="/images/ice-cream.png" alt="Ice Cream" />
                 </a>
                 <strong>Ice Cream</strong>
               </div>
-
               <div className="food-item">
                 <a href="/bakery">
                   <img src="/images/samosa1.png" alt="Samosa" />
                 </a>
                 <strong>Samosa</strong>
               </div>
-
               <div className="food-item">
                 <a href="/veg">
                   <img src="/images/noodles.png" alt="Noodles" />
@@ -222,9 +246,7 @@ function Home() {
         </div>
       </div>
 
-      {/* marqueee */}
-
-      {/* ===== Second Categories Carousel ===== */}
+      {/* ===== Categories Carousel ===== */}
       <div className="carousel-container">
         <h2 className="carousel-title">🍴 Foods Categories</h2>
         <Slider {...settings2}>
@@ -245,11 +267,10 @@ function Home() {
         </Slider>
       </div>
 
-      {/* ===== Our Achievements Section (Story + Stats Side by Side) ===== */}
+      {/* ===== Our Achievements Section ===== */}
       <div className="container-fluid" style={{ marginTop: "1px" }}>
         <h2 className="heading">Our Achievements</h2>
         <div className="row rowStyle">
-          {/* Left Side - Our Story */}
           <div className="col-sm-6 p-4">
             <div className="colFirst">
               <h3>Our story</h3>
@@ -267,12 +288,10 @@ function Home() {
               </p>
             </div>
           </div>
-
-          {/* Right Side - Stats */}
           <div className="col-sm-6 p-4">
             <div className="colSecond">
               <div className="achieve-card">
-                <i class="bi bi-award icons"></i>
+                <i className="bi bi-award icons"></i>
                 <br />
                 <strong className="achieves">15+</strong>
                 <h6 style={{ color: "white" }}>Awards Won</h6>
@@ -300,6 +319,7 @@ function Home() {
         </div>
       </div>
 
+      {/* ===== Contact & Reviews Section ===== */}
       <div className="container-fluid text-center">
         <h2 className="get-heading">Get In Touch</h2>
         <br />
@@ -311,7 +331,6 @@ function Home() {
 
         {/* Row of 4 cards */}
         <div className="row g-3">
-          {/* Visit Us */}
           <div className="col-md-3">
             <div className="card shadow-sm p-4 h-100">
               <i className="bi bi-geo-alt-fill fs-1 text-warning mb-3"></i>
@@ -321,7 +340,6 @@ function Home() {
             </div>
           </div>
 
-          {/* Call Us */}
           <div className="col-md-3">
             <div className="card shadow-sm p-4 h-100">
               <i className="bi bi-telephone-fill fs-1 text-success mb-3"></i>
@@ -331,7 +349,6 @@ function Home() {
             </div>
           </div>
 
-          {/* Email Us */}
           <div className="col-md-3">
             <div className="card shadow-sm p-4 h-100">
               <i className="bi bi-envelope-fill fs-1 text-primary mb-3"></i>
@@ -341,7 +358,6 @@ function Home() {
             </div>
           </div>
 
-          {/* Opening Hours */}
           <div className="col-md-3">
             <div className="card shadow-sm p-4 h-100">
               <i className="bi bi-clock-fill fs-1 text-danger mb-3"></i>
@@ -360,12 +376,11 @@ function Home() {
       {/* customer reviews */}
       <div className="reviews">
         <h2 className="rev-heading">What Our Customers Says</h2>
-
-        <div class="reviews-container">
-          <div class="review-card">
-            <img src="/images/lokesh.jpg" alt="Jemimah Rodrigues" />
+        <div className="reviews-container">
+          <div className="review-card">
+            <img src="/images/lokesh.jpg" alt="Lokesh Surisetti" />
             <strong>Lokesh Surisetti</strong>
-            <p class="stars">⭐⭐⭐⭐⭐</p>
+            <p className="stars">⭐⭐⭐⭐⭐</p>
             <p>
               FoodiePlace is my go-to site for discovering amazing restaurants
               and recipes! The interface is super user-friendly, and I love how
@@ -373,10 +388,10 @@ function Home() {
             </p>
           </div>
 
-          <div class="review-card">
+          <div className="review-card">
             <img src="/images/mohan.jpg" alt="Mohan" />
             <strong>Mohan Kanapakala</strong>
-            <p class="stars">⭐⭐⭐⭐</p>
+            <p className="stars">⭐⭐⭐⭐</p>
             <p>
               Great website with lots of food options! I wish there were more
               filters for dietary preferences, but overall, it's a delightful
@@ -384,10 +399,10 @@ function Home() {
             </p>
           </div>
 
-          <div class="review-card">
-            <img src="/images/butterfly.jpg" alt="Nelli" />
+          <div className="review-card">
+            <img src="/images/butterfly.jpg" alt="Bhargavi Nelli" />
             <strong>Bhargavi Nelli</strong>
-            <p class="stars">⭐⭐⭐⭐⭐</p>
+            <p className="stars">⭐⭐⭐⭐⭐</p>
             <p>
               I absolutely love FoodiePlace! The pictures are mouth-watering,
               and the recommendations are spot on. It makes exploring new
@@ -395,10 +410,10 @@ function Home() {
             </p>
           </div>
 
-          <div class="review-card">
-            <img src="/images/kl.jpg" alt="KL" />
+          <div className="review-card">
+            <img src="/images/kl.jpg" alt="KL Rahul" />
             <strong>KL Rahul</strong>
-            <p class="stars">⭐⭐⭐⭐⭐</p>
+            <p className="stars">⭐⭐⭐⭐⭐</p>
             <p>
               FoodiePlace is a foodie's paradise! From local eateries to
               international cuisines, everything is neatly categorized. Highly
@@ -410,25 +425,25 @@ function Home() {
 
       {/* Bottom section */}
       <div
-        className=" container-fluid row-section"
+        className="container-fluid row-section"
         style={{ marginTop: "10px" }}
       >
-        <div className="row ">
-          <div className=" col-sm-3 foodiePlace">
+        <div className="row">
+          <div className="col-sm-3 foodiePlace">
             <h2>FoodiePlace</h2>
             <p>
-              Creating exceptional dining experiences with passion,quality, and
+              Creating exceptional dining experiences with passion, quality, and
               innovation since 2025.
             </p>
             <div className="icons-grid">
               <a href="https://www.facebook.com/mohanrao.kanapakala">
                 <h5 className="fb-color">
-                  <i class="bi bi-facebook"></i>
+                  <i className="bi bi-facebook"></i>
                 </h5>
               </a>
               <a href="https://www.instagram.com/mohan_kanapakala/">
                 <h5 className="insta-color">
-                  <i class="bi bi-instagram"></i>
+                  <i className="bi bi-instagram"></i>
                 </h5>
               </a>
               <a
@@ -445,7 +460,6 @@ function Home() {
 
           <div className="col-sm-3">
             <h4 className="quick-link">Quick Links</h4>
-
             <div className="quick-links">
               <a href="/veg">Veg</a>
               <br />
@@ -460,7 +474,8 @@ function Home() {
               <a href="/contactus">Contact Us</a>
             </div>
           </div>
-          <div className="col-sm-3 ">
+
+          <div className="col-sm-3">
             <h4 className="menuHeading">Menu</h4>
             <ul className="menu-list">
               <li>Veg Items</li>
@@ -470,19 +485,21 @@ function Home() {
               <li>Bakery Items</li>
             </ul>
           </div>
+
           <div className="col-sm-3">
             <h4 className="contactInfo">Contact Info</h4>
             <div className="contact-text">
               <p>
-                <i class="bi bi-telephone" style={{ color: "orange" }}></i> 91
-                6305927818
+                <i className="bi bi-telephone" style={{ color: "orange" }}></i>{" "}
+                91 6305927818
               </p>
               <p>
-                <i class="bi bi-envelope" style={{ color: "orange" }}></i>
+                <i className="bi bi-envelope" style={{ color: "orange" }}></i>
                 &nbsp;hello@foodieplace.com
               </p>
               <p>
-                <i class="bi bi-clock" style={{ color: "orange" }}></i>&emsp;
+                <i className="bi bi-clock" style={{ color: "orange" }}></i>
+                &emsp;
                 <strong>Opening Hours:</strong>
               </p>
               <ul>
@@ -492,13 +509,14 @@ function Home() {
             </div>
           </div>
         </div>
+
         <div className="row">
           <div className="col-sm-12">
             <div className="copy-rights">
               <hr />
               <p>
                 &copy; 2025 FoodiePlace. All rights reserved. | Crafted with
-                love for food enthusiasts{" "}
+                love for food enthusiasts
               </p>
             </div>
           </div>
@@ -508,4 +526,4 @@ function Home() {
   );
 }
 
-  export default Home;
+export default Home;
