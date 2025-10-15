@@ -482,87 +482,7 @@ display: inline-block;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-/* customer reviews */
-.reviews{
-  background: radial-gradient(circle at center, 
-  #ffffff 0%, 
-  #d6e6fa 40%, 
-  #e3d3f7 70%, 
-  #f5b6b6 100% 
- ) !important;
-}
-.rev-heading{
- background: linear-gradient(90deg, #000000, #001f4d, #0077ff);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-display: inline-block;
-   font-size: 42px;
-    font-weight: 700;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-    margin-top: 20px;
-    font-style: italic;
-  padding: 20px 20px;
-}
-.reviews-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 35px !important;
-  margin-bottom: 30px;
-  
-}
 
-.review-card {
- /* background: radial-gradient(circle at center, 
-  #ffffff 0%, 
-  #d6e6fa 40%, 
-  #e3d3f7 70%, 
-  #f5b6b6 100% 
-); */
- /* Soft pastel blue to purple */
-/* background: linear-gradient(135deg, #fbc2eb, #a6c1ee); */
-background: linear-gradient(135deg, #000000, #141E30, #243B55);
-/* background: linear-gradient(135deg, #000000, #0f2027, #203a43); */
- padding: 20px;
-  width: 250px;
-  border-radius: 15px;
-  border: 1px solid black;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  height: 380px;
-}
-
-.review-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-.review-card img {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-
-.review-card strong {
-  display: block;
-  margin: 10px 0 5px 0;
-  font-size: 1.1em;
-  color: magenta;
-}
-
-.review-card .stars {
-  color: #FFD700; /* golden stars */
-  margin-bottom: 10px;
-  font-size: 1.1em;
-}
-
-.review-card p {
-  font-size: 0.95em;
-  color: white;
-}
 
 /* footer */ 
 .row-section{
@@ -634,5 +554,132 @@ background: linear-gradient(135deg, #000000, #141E30, #243B55);
     color: white;
  }
 
+.reviews-section{
+ background: linear-gradient(to bottom, 
+    #d6e6fa 0%, 
+    #e3d3f7 50%, 
+    #f5b6b6 100%
+  ) !important;
+  
+  padding-top: 20px;
+
+}
+  .review-heading{
+    background: linear-gradient(90deg, #000000, #001f4d, #0077ff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: inline-block;
+   font-size: 42px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    margin-top: 20px;
+    font-style: italic;
+  padding: 20px 20px;
+  }
+ .reviews {
+  text-align: center;
+  padding: 60px 20px;
+  font-family: "Poppins", sans-serif;
+  /* background: #0d1b2a; */ /* removed so it uses body background */
+}
+.reviews-container {
+  position: relative;
+  width: 900px;  /* adjust width as needed */
+  height: 400px; /* adjust height as needed */
+  margin: 0 auto;
+  
+  overflow: hidden;
+}
+
+/* Review Cards */
+.review-card {
+  position: absolute;
+  top: 0;
+  left: 100%; /* start offscreen */
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: scale(0.9) translateY(20px);
+  transition: all 0.8s ease-in-out;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  padding: 30px 20px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.review-card img {
+  width: 180px;   /* change width as needed */
+  height: 170px;  /* change height as needed */
+  border-radius: 74%; /* makes it circular */
+  object-fit: cover;  /* ensures image covers the box without stretching */
+  margin-bottom: 15px; /* spacing below image */
+  border: 2px solid #ffb400; /* optional accent border */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* optional shadow */
+}
+.review-card strong{
+  color:darkorange;
+}
+.review-card p{
+  color:white;
+}
 
 
+/* Active card */
+.review-card.active {
+  left: 0;
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .reviews-container {
+    max-width: 700px;
+    height: 350px;
+  }
+  .review-card img {
+    width: 120px;
+    height: 120px;
+  }
+  .review-heading {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .reviews-container {
+    max-width: 500px;
+    height: 320px;
+  }
+  .review-card img {
+    width: 100px;
+    height: 100px;
+  }
+  .review-heading {
+    font-size: 30px;
+  }
+  .review-card p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .reviews-container {
+    max-width: 100%;
+    height: 300px;
+    padding: 0 10px;
+  }
+  .review-card img {
+    width: 80px;
+    height: 80px;
+  }
+  .review-heading {
+    font-size: 26px;
+  }
+  .review-card p {
+    font-size: 0.9rem;
+  }
+}

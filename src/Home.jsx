@@ -1,6 +1,6 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import "./Home.css";
@@ -70,6 +70,53 @@ function Home() {
     { id: 2, img: "/images/c2.jpg", link: "/nonveg" },
     { id: 3, img: "/images/c3.jpg", link: "/bakery" },
   ];
+
+  const reviews = [
+    {
+      img: "/images/lokesh.jpg",
+      name: "Lokesh Surisetti",
+      stars: "⭐⭐⭐⭐⭐",
+      text: "FoodiePlace is my go-to site...",
+      color: "card-blue",
+    },
+    {
+      img: "/images/kmr.jpeg",
+      name: "Mohan Kanapakala",
+      stars: "⭐⭐⭐⭐",
+      text: "Great website with lots of options...",
+      color: "card-pink",
+    },
+    {
+      img: "/images/butterfly.jpg",
+      name: "Bhargavi Nelli",
+      stars: "⭐⭐⭐⭐⭐",
+      text: "I absolutely love FoodiePlace...",
+      color: "card-green",
+    },
+    {
+      img: "/images/kl.jpg",
+      name: "KL Rahul",
+      stars: "⭐⭐⭐⭐⭐",
+      text: "FoodiePlace is a foodie’s paradise...",
+      color: "card-purple",
+    },
+    {
+      img: "/images/kranthi.jpeg",
+      name: "Kranthi Gara",
+      stars: "⭐⭐⭐⭐⭐",
+      text: "FoodiePlace is a foodie’s paradise...",
+      color: "card-purple",
+    },
+  ];
+
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % reviews.length);
+    }, 4000); // change every 4 seconds
+    return () => clearInterval(timer);
+  }, [reviews.length]);
 
   return (
     <div>
@@ -373,53 +420,23 @@ function Home() {
         </p>
       </div>
 
-      {/* customer reviews */}
-      <div className="reviews">
-        <h2 className="rev-heading">What Our Customers Says</h2>
+      {/* Customer Reviews */}
+      <div>
+        <h2 className="review-heading">What Our Customer Says..</h2>
+      </div>
+      <div className="reviews-section">
         <div className="reviews-container">
-          <div className="review-card">
-            <img src="/images/lokesh.jpg" alt="Lokesh Surisetti" />
-            <strong>Lokesh Surisetti</strong>
-            <p className="stars">⭐⭐⭐⭐⭐</p>
-            <p>
-              FoodiePlace is my go-to site for discovering amazing restaurants
-              and recipes! The interface is super user-friendly, and I love how
-              quickly I can find what I'm craving.
-            </p>
-          </div>
-
-          <div className="review-card">
-            <img src="/images/mohan.jpg" alt="Mohan" />
-            <strong>Mohan Kanapakala</strong>
-            <p className="stars">⭐⭐⭐⭐</p>
-            <p>
-              Great website with lots of food options! I wish there were more
-              filters for dietary preferences, but overall, it's a delightful
-              experience for any food lover.
-            </p>
-          </div>
-
-          <div className="review-card">
-            <img src="/images/butterfly.jpg" alt="Bhargavi Nelli" />
-            <strong>Bhargavi Nelli</strong>
-            <p className="stars">⭐⭐⭐⭐⭐</p>
-            <p>
-              I absolutely love FoodiePlace! The pictures are mouth-watering,
-              and the recommendations are spot on. It makes exploring new
-              cuisines so much fun.
-            </p>
-          </div>
-
-          <div className="review-card">
-            <img src="/images/kl.jpg" alt="KL Rahul" />
-            <strong>KL Rahul</strong>
-            <p className="stars">⭐⭐⭐⭐⭐</p>
-            <p>
-              FoodiePlace is a foodie's paradise! From local eateries to
-              international cuisines, everything is neatly categorized. Highly
-              recommend for anyone who loves good food!
-            </p>
-          </div>
+          {reviews.map((r, index) => (
+            <div
+              key={index}
+              className={`review-card ${index === current ? "active" : ""}`}
+            >
+              <img src={r.img} alt={r.name} />
+              <strong>{r.name}</strong>
+              <p className="stars">{r.stars}</p>
+              <p>{r.text}</p>
+            </div>
+          ))}
         </div>
       </div>
 
