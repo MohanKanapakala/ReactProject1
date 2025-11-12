@@ -1,18 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Bakery.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "./store";
+import { addToCart, fetchProducts } from "./store";
 import "react-toastify/dist/ReactToastify.css";
 import { toast, ToastContainer } from "react-toastify";
 
 function Bakery() {
-  let bakeryItems = useSelector(
-    (globalState) => globalState.products.bakeryItems
+  const dispatch = useDispatch();
+  const { bakeryItems, loading, error } = useSelector(
+    (state) => state.products
   );
-  let dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
+  if (loading) return <h2>Loading Bakery Items...</h2>;
+  if (error) return <h2>Error: {error}</h2>;
+  if (!bakeryItems.length) return <h3>No Bakery Items Found</h3>;
 
   // total pages
   const totalPages = Math.ceil(bakeryItems.length / itemsPerPage);

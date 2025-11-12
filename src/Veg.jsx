@@ -1,16 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./veg.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "./store";
+import { addToCart, fetchProducts } from "./store";
 import "react-toastify/dist/ReactToastify.css";
 import { toast, ToastContainer } from "react-toastify";
 
 function Veg() {
-  let vegItems = useSelector((globalState) => globalState.products.vegItems);
+  // let vegItems = useSelector((globalState) => globalState.products.vegItems);
+  const { vegItems, loading, error } = useSelector((state) => state.products);
   let dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
+
+  // ✅ Fetch veg items from backend on mount
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
+  
+
+  if (loading) return <h2>Loading Veg Items...</h2>;
+  if (error) return <h2>Error: {error}</h2>;
+  if (!vegItems.length) return <h3>No Veg Items Found</h3>;
 
   // total pages
   const totalPages = Math.ceil(vegItems.length / itemsPerPage);
@@ -23,11 +35,17 @@ function Veg() {
   //  Prepare the list here (outside return)
   const vegListItems = currentItems.map((product) => (
     <li key={product.id}>
-      <img src={product.imgUrl} alt="no image"  />
+      <img src={product.imgUrl} alt="no image" />
       <h3>{product.name}</h3>
       <strong>Rs.{product.price}</strong>
       <p>{product.description}</p>
-      <button type="button" onClick={() => { dispatch(addToCart(product)); toast.success(`Product ${product.name} added to cart successfully!`) }}>
+      <button
+        type="button"
+        onClick={() => {
+          dispatch(addToCart(product));
+          toast.success(`Product ${product.name} added to cart successfully!`);
+        }}
+      >
         Add To Cart
       </button>
     </li>

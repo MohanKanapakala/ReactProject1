@@ -1,19 +1,27 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Nonveg.css";
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from "./store";
+import { addToCart, fetchProducts } from "./store";
 import "react-toastify/dist/ReactToastify.css";
 import { toast, ToastContainer } from "react-toastify";
 
 function Nonveg() {
 
-  let dispatch = useDispatch();
-  let nonVegItems = useSelector(
-    (globalState) => globalState.products.nonVegItems); 
-  
-  const [currentPage, setCurrentPage] = useState(1);
+  const dispatch = useDispatch();
+  const { nonVegItems, loading, error } = useSelector(
+    (state) => state.products
+  );
 
+  const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
+  if (loading) return <h2>Loading Non-Veg Items...</h2>;
+  if (error) return <h2>Error: {error}</h2>;
+  if (!nonVegItems.length) return <h3>No Non-Veg Items Found</h3>;
 
   const totalPages = Math.ceil(nonVegItems.length / itemsPerPage);
   

@@ -1,8 +1,8 @@
 import React from "react";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { MdAccountCircle } from "react-icons/md";
-import { logoutUser } from "./store";
+import { logoutUser, clearCart } from "./store";
 
 import Home from "./Home";
 import Veg from "./Veg";
@@ -19,40 +19,31 @@ import Signup from "./Signup";
 import NotFound from "./NotFound";
 
 import "./App.css";
-import VoiceSearch from "./VoiceSearch";
 
 function App() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const cartItems = useSelector((state) => state.cart);
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-
   const { isAuthenticated, currentUser } = useSelector(
     (state) => state.authentication
   );
 
-
- const showVegItems = () => alert("Showing Veg Items 🌱");
- const addToCart = (item) => alert(`Added ${item} to cart 🍕`);
-
-
   return (
-    <BrowserRouter>
+    <>
       {/* ✅ Navbar */}
       <div className="navbar">
         <div className="navbar-wrapper">
-          {/* === Row 1 === */}
           <div className="navbar-top">
-            {/* Left: Logo */}
             <div className="logo">
               <h1>🍴FoodiePlace</h1>
             </div>
 
-            {/* Middle: Search */}
             <div className="search-bar">
               <input type="text" placeholder="Search for items..." />
             </div>
 
-            {/* Right: Auth Links */}
             <div className="nav-actions">
               {isAuthenticated ? (
                 <>
@@ -60,7 +51,11 @@ function App() {
                     👋 Welcome, {currentUser?.userName}
                   </span>
                   <button
-                    onClick={() => dispatch(logoutUser())}
+                    onClick={() => {
+                      dispatch(clearCart());
+                      dispatch(logoutUser());
+                      navigate("/"); // ✅ redirects home after logout
+                    }}
                     className="nav-links logout-btn"
                   >
                     Logout➡️
@@ -80,13 +75,10 @@ function App() {
             </div>
           </div>
 
-          {/* === Row 2 === */}
           <div className="navbar-bottom">
             <Link to="/" className="nav-links">
               🏠 Home
             </Link>
-
-            {/* Dropdown Menu */}
             <div className="dropdown">
               <button className="dropbtn">&#9776; Menu 🍽️</button>
               <div className="dropdown-content">
@@ -97,7 +89,6 @@ function App() {
                 <Link to="/bakery">🍔 BakeryItems</Link>
               </div>
             </div>
-
             <Link to="/cart" className="nav-links">
               🛒 Cart (<span className="cart-count">{cartCount}</span>)
             </Link>
@@ -113,8 +104,7 @@ function App() {
           </div>
         </div>
       </div>
-      {/* return{" "} */}
-      {/* <VoiceSearch showVegItems={showVegItems} addToCart={addToCart} />; */}
+
       {/* ✅ Routes */}
       <Routes>
         <Route path="/" element={<Home />} />
@@ -131,7 +121,7 @@ function App() {
         <Route path="/signin" element={<Account />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 
