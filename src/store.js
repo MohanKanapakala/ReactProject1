@@ -1,19 +1,51 @@
-import { createSlice, configureStore, current, createAsyncThunk } from "@reduxjs/toolkit";
+import {
+  createSlice,
+  configureStore,
+  createAsyncThunk,
+} from "@reduxjs/toolkit";
 import axios from "axios";
 
-// Thunk to fetch all categories
+/* ------------------- PRODUCT SLICE ------------------- */
+
+// Thunk to fetch all products (with localStorage support)
 export const fetchProducts = createAsyncThunk("products/fetch", async () => {
-  const response = await axios.get("http://localhost:8080/api/products");
-  return response.data;
+  try {
+    const response = await axios.get("http://localhost:8080/api/products");
+
+    // ✅ Save to localStorage for offline use
+    localStorage.setItem("cachedProducts", JSON.stringify(response.data));
+
+    return response.data;
+  } catch (error) {
+    console.warn("⚠️ Backend not reachable. Loading cached products...");
+
+    const cached = localStorage.getItem("cachedProducts");
+    if (cached) {
+      return JSON.parse(cached);
+    } else {
+      throw new Error("No backend and no cached data found!");
+    }
+  }
 });
+
+const savedProducts = JSON.parse(localStorage.getItem("cachedProducts")) || [];
+
 const productSlice = createSlice({
   name: "products",
   initialState: {
-    vegItems: [],
-    nonVegItems: [],
-    chocolateItems: [],
-    bakeryItems: [],
-    milkItems: [],
+    vegItems: savedProducts.filter((p) => p.category?.toLowerCase() === "veg"),
+    nonVegItems: savedProducts.filter(
+      (p) => p.category?.toLowerCase() === "non-veg"
+    ),
+    chocolateItems: savedProducts.filter(
+      (p) => p.category?.toLowerCase() === "chocolate"
+    ),
+    bakeryItems: savedProducts.filter(
+      (p) => p.category?.toLowerCase() === "bakery"
+    ),
+    milkItems: savedProducts.filter(
+      (p) => p.category?.toLowerCase() === "milk"
+    ),
     loading: false,
     error: null,
   },
@@ -28,22 +60,21 @@ const productSlice = createSlice({
         const data = action.payload;
 
         // Divide products by category
-        state.vegItems = data.filter((p) => p.category.toLowerCase() === "veg");
+        state.vegItems = data.filter(
+          (p) => p.category?.toLowerCase() === "veg"
+        );
         state.nonVegItems = data.filter(
-          (p) => p.category.toLowerCase() === "non-veg"
+          (p) => p.category?.toLowerCase() === "non-veg"
         );
         state.bakeryItems = data.filter(
-          (p) => p.category.toLowerCase() === "bakery"
+          (p) => p.category?.toLowerCase() === "bakery"
         );
         state.milkItems = data.filter(
-          (p) => p.category.toLowerCase() === "milk"
-        );
-        state.bakeryItems = data.filter(
-          (p) => p.category && p.category.toLowerCase() === "bakery"
+          (p) => p.category?.toLowerCase() === "milk"
         );
         state.chocolateItems = data.filter(
-          (p) => p.category.toLowerCase() === "chocolate"
-        ); //
+          (p) => p.category?.toLowerCase() === "chocolate"
+        );
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.loading = false;
@@ -52,69 +83,65 @@ const productSlice = createSlice({
   },
 });
 
-
-//get the localstorage data and assign to initialState
+/* ------------------- CART SLICE ------------------- */
 const authData = JSON.parse(localStorage.getItem("authentication"));
 const currentUser = authData?.currentUser?.userName;
-const initialState =
-  JSON.parse(localStorage.getItem(`cart_${currentUser}`)) || [];
+const savedCart = JSON.parse(localStorage.getItem(`cart_${currentUser}`)) || [];
 
 const cartSlice = createSlice({
   name: "cart",
-  initialState: [],
+  initialState: savedCart,
   reducers: {
-    loadCart: (state, action) => {
-      return action.payload; // replace current state with saved cart
-    },
+    loadCart: (state, action) => action.payload,
     addToCart: (state, action) => {
-      let item = state.find((state) => state.id === action.payload.id);
-      if (item) {
-        item.quantity += 1;
-      } else {
-        state.push({ ...action.payload, quantity: 1 });
-      }
+      const item = state.find((i) => i.id === action.payload.id);
+      if (item) item.quantity += 1;
+      else state.push({ ...action.payload, quantity: 1 });
     },
     removeFromCart: (state, action) => {
-      let itemIndex = state.findIndex((item) => item.id === action.payload.id);
-      if (itemIndex != -1) {
-        state.splice(itemIndex, 1);
-      }
+      const index = state.findIndex((i) => i.id === action.payload.id);
+      if (index !== -1) state.splice(index, 1);
     },
     incQuantity: (state, action) => {
-      let item = state.find((item) => item.id === action.payload.id);
+      const item = state.find((i) => i.id === action.payload.id);
       if (item) item.quantity += 1;
     },
     decQuantity: (state, action) => {
-      let item = state.find((i) => i.id === action.payload.id);
-      if (item && item.quantity > 1) {
-        item.quantity -= 1;
-      } else {
-        return state.filter((i) => i.id !== action.payload.id);
-      }
+      const item = state.find((i) => i.id === action.payload.id);
+      if (item && item.quantity > 1) item.quantity -= 1;
+      else return state.filter((i) => i.id !== action.payload.id);
     },
     clearCart: () => [],
   },
 });
 
-export let { addToCart, removeFromCart, incQuantity, decQuantity,clearCart,loadCart } = cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  incQuantity,
+  decQuantity,
+  clearCart,
+  loadCart,
+} = cartSlice.actions;
 
-//get the localstorage data and assign to initialState
-const savedOrder = JSON.parse(localStorage.getItem("orders"))||[]
-let ordersSlice = createSlice({
+/* ------------------- ORDERS SLICE ------------------- */
+const savedOrders = JSON.parse(localStorage.getItem("orders")) || [];
+
+const ordersSlice = createSlice({
   name: "orders",
-  initialState: savedOrder,
+  initialState: savedOrders,
   reducers: {
     addOrder: (state, action) => {
       state.push(action.payload);
-    }
-  } 
+    },
+  },
 });
-export let { addOrder } = ordersSlice.actions;
+export const { addOrder } = ordersSlice.actions;
 
+/* ------------------- AUTH SLICE ------------------- */
+const savedAuth = JSON.parse(localStorage.getItem("authentication"));
 
-let savedAuth = JSON.parse(localStorage.getItem("authentication"));
-//authenticationSlice
-let authSlice = createSlice({
+const authSlice = createSlice({
   name: "authentication",
   initialState: savedAuth || {
     users: [],
@@ -127,8 +154,8 @@ let authSlice = createSlice({
     },
     loginUser: (state, action) => {
       const { userName, password } = action.payload;
-      let user = state.users.find(
-        (user) => user.userName === userName && user.password === password
+      const user = state.users.find(
+        (u) => u.userName === userName && u.password === password
       );
       if (user) {
         state.isAuthenticated = true;
@@ -144,8 +171,9 @@ let authSlice = createSlice({
     },
   },
 });
-export let { registerUser, loginUser,logoutUser } = authSlice.actions;
+export const { registerUser, loginUser, logoutUser } = authSlice.actions;
 
+/* ------------------- STORE CONFIGURATION ------------------- */
 const store = configureStore({
   reducer: {
     products: productSlice.reducer,
@@ -155,8 +183,9 @@ const store = configureStore({
   },
 });
 
+/* ------------------- SUBSCRIPTIONS ------------------- */
 
-// ✅ Save cart per user
+// Save cart per user
 store.subscribe(() => {
   const state = store.getState();
   const userName = state.authentication?.currentUser?.userName;
@@ -165,18 +194,17 @@ store.subscribe(() => {
   }
 });
 
-
-
-// ✅ Save authentication state on every change
+// Save authentication
 store.subscribe(() => {
   localStorage.setItem(
     "authentication",
     JSON.stringify(store.getState().authentication)
   );
 });
-// ✅ Save Orders state on every change
+
+// Save orders
 store.subscribe(() => {
   localStorage.setItem("orders", JSON.stringify(store.getState().orders));
-})
+});
 
 export default store;
